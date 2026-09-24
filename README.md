@@ -12,9 +12,9 @@ No companion fetch, second clone, or workflow-install step is needed. The app is
 
 ## Why it matters
 
-The shelter's functional tests cannot answer every security question. This workshop adds code-scanning remediation, dependency review, and secret protection, then demonstrates merge policy and an approved release simulation.
+The shelter's functional tests cannot answer every security question. This workshop adds code-scanning remediation, dependency review, and secret protection, then has each learner configure merge policy and approve a cloud-free release simulation in their own repository.
 
-The event is designed for 90 minutes: eight minutes for startup, 75 for the core, and seven for closing. The repository includes complete take-home labs and an optional job-token/OIDC learning path. The guides document local Git and GitHub file-editor fallbacks. You need no cloud account or personal token.
+The complete agenda is exactly 120 minutes: eight minutes for setup, 57 for Labs 1–5, 48 for learner-run Labs 6–7, and seven for closing. These are design budgets, not a rehearsed timing guarantee; slow or unavailable platform results remain pending or incomplete. The repository includes recovery companions and an optional job-token/OIDC learning path. The guides document local Git and GitHub file-editor fallbacks. You need no cloud account or personal token.
 
 > [!IMPORTANT]
 > This is a training prerelease, not a production-ready application. The debug-startup finding is intentional exercise input; existing dependency alerts are not claimed resolved. Do not run or expose the app as a public service. Automated tests do not replace a fresh template-copy check, a live Codespaces check, or a human pacing rehearsal; see [readiness](content/devsecops/readiness.md).

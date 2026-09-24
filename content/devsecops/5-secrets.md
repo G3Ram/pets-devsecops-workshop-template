@@ -77,6 +77,8 @@ The [fixture record](fixtures/secret-validation.md) documents an earlier local-t
 
 Record Codespaces, local Git, or file-editor fallback explicitly, with the actual block and clean retry. Explain why deleting a real secret is not sufficient response: revoke or rotate it, assess use, coordinate history cleanup, and prevent recurrence. The Codespaces and local Git routes also demonstrate how to repair an unpublished commit. The file-editor route does not.
 
+Keep the dependency-training PR from Lab 4 open and unchanged. If its completed failure was observed, leave it failing; if its result is pending, keep it pending. Lab 6 will use that exact PR to demonstrate the merge block before repairing it.
+
 ## Resources
 
 [Supported secret patterns](https://docs.github.com/en/code-security/reference/secret-security/supported-secret-scanning-patterns), [blocked terminal pushes](https://docs.github.com/en/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/push-protection-on-the-command-line), and [blocked web commits](https://docs.github.com/en/code-security/how-tos/secure-your-secrets/work-with-leak-prevention/push-protection-in-the-github-ui). Their bypass options are not used in this workshop.

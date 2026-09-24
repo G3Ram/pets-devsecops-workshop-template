@@ -1,37 +1,35 @@
-# Continue in your own repository
+# Continue or recover in your own repository
 
 | [Previous: closing](../8-wrap-up.md) | [Next: resume](0-resume.md) |
 |:---|---:|
 
-These labs let you practice the merge and release demonstrations yourself. The kit includes all instructions and starter files. Take-home work is optional.
+Labs 6 and 7 are required individual work in the 120-minute core workshop. These take-home pages are recovery and extended-validation companions; the canonical procedures are [Lab 6: merge policy](../6-merge-policy.md) and [Lab 7: delivery and response](../7-delivery-and-response.md). They do not define a second version of those procedures.
 
 ## Why it matters
 
-Verify each rule by observing a safe failure, repairing it, and identifying the revision it allowed.
+Verify each rule by observing a safe failure, repairing it, and identifying the exact revision it allowed. If work is unfinished, resume from the actual repository state without discarding changes or mislabeling pending results.
 
-Use the same eligible GitHub.com account, public learner repository, and **existing codespace**, subject to remaining usage or approved sponsorship. Reopen it at [github.com/codespaces](https://github.com/codespaces) rather than creating one per lab. No Azure account, new payment method, second reviewer, laptop runtime, or PAT is required. Respect employer and organization policies.
-
-Copy and edit files in the Codespaces editor, and run Git in its integrated terminal. Handle PRs, settings, dispatch, results, and approvals on GitHub.com. Tests, builds, scans, and the token proof execute in Actions. All starters and guides are in your checkout's `content/devsecops`; [Resume](0-resume.md) handles stopped spaces and partial work without downloading another repository.
+Use the same public learner repository, eligible GitHub.com account, and existing codespace, subject to remaining usage or approved sponsorship. Reopen the existing space rather than creating one per lab. No Azure account, new payment method, second reviewer, laptop runtime, or PAT is required. Respect employer and organization policies.
 
 ## Choose a starting point
 
-1. Read [Resume](0-resume.md), even if you completed the live work. It handles closed or merged PRs and partially completed exercises without discarding changes.
-2. Follow [Lab 1: enforce merge policy](1-enforce-merge-policy.md) to configure a solo-compatible ruleset, prove a dependency block, and merge only safe application work.
-3. Follow [Lab 2: approve a release](2-approve-a-release.md) to configure the environment before installing the third workflow, approve a validated revision, and inspect your receipt.
-4. Follow [Lab 3: maintain dependencies](3-maintain-dependencies.md) to add pip/Actions update coverage and prepare for future update PRs.
-5. Optionally follow [Lab 4: workload identity](4-workload-identity.md) to prove a denied GitHub API operation, a narrowly authorized job, and cleanup of its bot-created issue. It can be done after Step 0 without completing the release lab. The final section links to OIDC cloud-identity guidance; no cloud setup is required or claimed.
+1. Read [Resume](0-resume.md) for fresh, partial, already-merged, and stopped-space recovery.
+2. Follow [Lab 6](../6-merge-policy.md) for the canonical active ruleset, failed dependency-check block, same-branch repair, unmerged training PR, and safe merge.
+3. Follow [Lab 7](../7-delivery-and-response.md) for the canonical environment policy, reviewed workflow PR, approval, receipt, and incident decision.
+4. Use [Merge-policy recovery](1-enforce-merge-policy.md) and [Release recovery](2-approve-a-release.md) as concise state-specific references and optional extended validation.
+5. Continue with [Lab 3: maintain dependencies](3-maintain-dependencies.md) or optional [Lab 4: workload identity](4-workload-identity.md) after the core workshop. The workload-identity lab tests GitHub API authorization only; OIDC/cloud setup is further reading.
 
-[Troubleshooting](troubleshooting.md), [annotated solutions](../solutions/README.md), and [the evidence checklist](../evidence.md) are shared references. The [readiness register](../readiness.md) distinguishes executed checks from remaining publication and rehearsal work.
+[Troubleshooting](troubleshooting.md), [annotated solutions](../solutions/README.md), and the [evidence checklist](../evidence.md) are shared references. Examples and historical runs are not learner evidence. The [readiness register](../readiness.md) distinguishes local source validation from pending GitHub, Codespaces, and human checks.
 
-If Codespaces is unavailable, use the [local Git](../0-setup.md#fallback-a-local-vs-code-and-git) or [file-editor fallback](../0-setup.md#fallback-b-github-file-editor) after preserving existing work. Record the route used. Before leaving any lab, save/push safe work and explicitly stop the codespace; stopped storage still counts.
+If Codespaces is unavailable, use the documented [local Git](../0-setup.md#fallback-a-local-vs-code-and-git) or [file-editor fallback](../0-setup.md#fallback-b-github-file-editor) after preserving existing work. Record the route and the actual result separately. Before leaving any lab, save/push safe work and explicitly stop the codespace; stopped storage still counts.
 
 ## Checkpoint
 
-Your take-home record should show your own enforced block/repair and approved receipt. A presenter's recording does not count as your configuration or run.
+Your evidence should show your own blocked merge, repaired eligibility, safe merge, and approved receipt where those steps were completed. A presenter's recording, saved example, or another repository does not count as your configuration or run.
 
 ## Resources
 
-[Repository rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets) and [deployment environments](https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments).
+[Repository rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets) and [deployment environments](https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments) describe the controls used in the core labs.
 
 | [Previous: closing](../8-wrap-up.md) | [Next: resume](0-resume.md) |
 |:---|---:|

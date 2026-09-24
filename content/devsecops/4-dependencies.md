@@ -1,4 +1,4 @@
-# 4. Review a vulnerable dependency change
+# 4. Observe a vulnerable dependency change
 
 | [Previous: code scanning](3-code-scanning.md) | [Next: secrets](5-secrets.md) |
 |:---|---:|
@@ -7,23 +7,25 @@ Budget: 15 minutes. A volunteer proposes a package change. Your review should ca
 
 ## Why it matters
 
-Dependency review evaluates the packages a PR introduces. Dependabot alerts monitor dependencies already present; version-update PRs keep them current. None of these replaces testing an update.
+Dependency review evaluates packages a PR introduces. Dependabot alerts monitor dependencies already present; version-update PRs keep them current. None of these replaces testing an update.
 
 > [!WARNING]
 > This exercise uses an unused manifest. Never install its packages or merge its PR. The files in this kit are inert `.txt` handouts; only your isolated exercise branch gets a real `requirements.txt`.
 
 ## Try it
 
-1. Return briefly to your code-fix PR and record its current results. Then inspect `.github/dependabot.yml`: it covers npm in `/app/client`. Pip and Actions configuration belongs to the take-home lab; do not edit it now.
-2. In the Codespaces terminal, confirm your previous work is committed and the tree is clean, then create the isolated branch from prepared `main`:
+1. Return briefly to your safe application PR and record its current results. Inspect `.github/dependabot.yml`: it covers npm in `/app/client`. Pip and Actions configuration are not part of this lab.
+2. In the Codespaces terminal, confirm previous work is committed and the tree is clean, then update your learner `main` and create the isolated branch:
 
    ```bash
    git status --short
+   git fetch origin
    git switch main
-   git switch -c exercise/dependency-review
+   git merge --ff-only origin/main
+   git switch -c exercise/dependency-policy
    ```
 
-   If that branch already exists, inspect it and resume the work instead of overwriting it.
+   If that branch already exists, inspect it and resume it instead of overwriting it. If `main` cannot fast-forward cleanly, stop and follow [Resume](take-home/0-resume.md).
 3. Copy the bundled workshop's inert before fixture into the unused lab directory:
 
    ```bash
@@ -43,42 +45,27 @@ Dependency review evaluates the packages a PR introduces. Dependabot alerts moni
    ```bash
    git add -- workshop-lab/dependency/requirements.txt
    git diff --cached -- workshop-lab/dependency/requirements.txt
-   git commit -m "Add isolated dependency review training fixture"
-   git push -u origin exercise/dependency-review
+   git commit -m "Add isolated dependency policy training fixture"
+   git push -u origin exercise/dependency-policy
    ```
 
-   On GitHub.com, open a PR against your own `main` titled **Training only: dependency review; do not merge**. The workflow on `main` already reports `dependency-review`. Neither CI job reads this lab directory.
-5. Wait for the initial dependency review result. Inspect the PR's dependency diff and confirm it lists PyJWT, the manifest path, and version 2.3.0. Open the failed `dependency-review` job and record the high-severity advisory and run URL.
-6. Only after observing the failure, use the Codespaces editor to replace the file's one line with the content of `content/devsecops/fixtures/dependency-after.txt`:
+   On GitHub.com, open a PR against your own `main` titled **Training only: prove dependency policy; do not merge**. Confirm it is separate from your safe application PR. The workflow on `main` reports the `dependency-review` job; neither CI job reads the lab directory.
+5. Wait for the initial dependency-review result. Inspect the PR dependency diff and confirm it lists the lab manifest, PyJWT, and version 2.3.0. Open the failed `dependency-review` job and record the high-severity advisory and run URL.
+6. **Do not repair the fixture in Lab 4.** Leave the dependency-training PR open and failing for Lab 6. Do not change the branch to a repaired version, close the PR, or merge it here.
 
-   ```text
-   PyJWT==2.14.0
-   ```
+If the result is pending at minute 53, move to the secret exercise and return at the start of Lab 6. A queued or missing check is not an observed dependency failure. Continue only after inspecting a completed failure that identifies the advisory; if it never arrives, record the dependency outcome as pending or incomplete.
 
-7. Save the file, commit the repair on the same branch, and inspect its Actions result on GitHub:
-
-   ```bash
-   git add -- workshop-lab/dependency/requirements.txt
-   git diff --cached -- workshop-lab/dependency/requirements.txt
-   git commit -m "Repair the isolated dependency fixture"
-   git push
-   ```
-
-   Record the passing `dependency-review` run for this revision. Leave the PR unmerged for take-home, or close it without merging. Never install the fixture in Codespaces, on a laptop, or in CI.
-
-If needed, the [local Git fallback](0-setup.md#fallback-a-local-vs-code-and-git) uses these same commands. In the [file-editor fallback](0-setup.md#fallback-b-github-file-editor), create the same manifest from `main` on a new `exercise/dependency-review` branch, observe failure, then edit its one line and commit the repair on that branch.
+The [local Git fallback](0-setup.md#fallback-a-local-vs-code-and-git) uses the same commands. For the [file-editor fallback](0-setup.md#fallback-b-github-file-editor), create `exercise/dependency-policy` from your `main`, add the same manifest, open the PR, and leave it open after observing the failure.
 
 ## Read the advisory
 
-[GHSA-ffqj-6fqr-9h24](https://github.com/advisories/GHSA-ffqj-6fqr-9h24) is high severity and affects PyJWT `>=1.5.0,<2.4.0`. Version 2.3.0 is in that range. The first patch for that advisory was 2.4.0, but it is not the current repair used here: [GHSA-752w-5fwx-jx9f](https://github.com/advisories/GHSA-752w-5fwx-jx9f) affects versions through 2.11.0.
+[GHSA-ffqj-6fqr-9h24](https://github.com/advisories/GHSA-ffqj-6fqr-9h24) is high severity and affects PyJWT `>=1.5.0,<2.4.0`; the lab's 2.3.0 version is in that range. The first patch for this advisory was 2.4.0, but later advisories may change which version is appropriate. Lab 6 contains the reviewed repair procedure. Recheck the advisory before each event; no version is guaranteed to remain vulnerability-free. [Technical sources](sources.md) record the original lookup.
 
-The supplied repair is 2.14.0. When the kit was authored, the GitHub Advisory API found no matching advisories for that version. Recheck before each event; this lookup does not guarantee the version will remain vulnerability-free. A new advisory may require a new kit version. [Technical sources](sources.md) record the check.
-
-The starter fails on **high** or **critical** severity across runtime, development, and unknown scopes. A green job with an empty dependency diff is not proof of fixture detection. If the manifest is absent, stop and report discovery failure; do not lower the threshold or install the fixture to force a result.
+The starter fails on **high** or **critical** severity across runtime, development, and unknown scopes. A green job with an empty dependency diff is not proof that it detected the fixture. If the manifest is absent or the service returns an availability error, record discovery failure; do not lower the threshold or install the fixture to force a result.
 
 ## Checkpoint
 
-Your evidence has a failed run, the observed advisory/version, the one-line repair, and a passing run. If the first result is still pending at minute 53, move to secrets and return during the demonstrations. Do not repair before seeing the initial failure and then claim a red-to-green cycle.
+Your evidence has the actual manifest path and version, a completed high-severity failed run, and a link to the open dependency-training PR. The PR must remain unrepaired and unmerged until Lab 6. Do not claim a failure-and-repair cycle before both states are observed.
 
 ## Resources
 

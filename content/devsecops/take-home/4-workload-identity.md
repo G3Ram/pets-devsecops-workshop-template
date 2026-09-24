@@ -3,7 +3,7 @@
 | [Previous: dependency maintenance](3-maintain-dependencies.md) | [Next: troubleshooting](troubleshooting.md) |
 |:---|---:|
 
-This optional exercise is outside the 75-minute core. Use the same public learner repository, GitHub.com account, and existing Codespaces editor/terminal. It needs no cloud account, PAT, app registration, Copilot subscription, or laptop tools. The jobs test GitHub API authorization in Actions; they do not test Azure or AWS authentication.
+This optional exercise is outside the 120-minute core workshop. Use the same public learner repository, GitHub.com account, and existing Codespaces editor/terminal. It needs no cloud account, PAT, app registration, Copilot subscription, or laptop tools. The jobs test GitHub API authorization in Actions; they do not test Azure or AWS authentication.
 
 ## Why it matters
 

@@ -1,6 +1,6 @@
 # 0. Resume without losing your work
 
-| [Previous: take-home index](README.md) | [Next: merge policy](1-enforce-merge-policy.md) |
+| [Previous: take-home index](README.md) | [Next: Lab 6 merge policy](../6-merge-policy.md) |
 |:---|---:|
 
 ## Why it matters
@@ -35,16 +35,30 @@ If quota prevents resuming, follow [the recovery guide](troubleshooting.md#codes
 
 | State | Safe next action |
 |---|---|
-| Live code/dependency work complete; working PR open | Keep it open. Save evidence and continue to Lab 1. |
-| Code fix submitted, results pending or failed | Inspect the latest revision and finish [lesson 3](../3-code-scanning.md). Do not count an older green revision. |
-| Dependency failure or repair missing | Resume [lesson 4](../4-dependencies.md). Verify discovery before claiming a passing result. |
-| Working PR closed without merge | Reopen it if GitHub permits and the branch still exists. Otherwise create `exercise/shelter-resume` from current prepared `main`, apply only missing safe edits, and open a new PR. |
-| Working PR already merged | Confirm `debug=False`, the regression test, and post-merge analysis on `main`. Create `exercise/shelter-resume` with a harmless note change for the required-PR exercise. Do not restore debug mode to recreate the old finding. |
-| Dependency PR closed or branch gone | Create a new isolated `exercise/dependency-policy` branch from current prepared `main` during Lab 1. Never merge the lab manifest. |
-| Fresh template copy | Complete [all of Step 0](../0-setup.md), then lessons 1-4. Keep secret protection marked incomplete if the fixture is unavailable. Return here afterward. |
+| Labs 0–7 complete | Verify the safe merge SHA and its `main` results, the dependency PR is closed without merging, and the release receipt belongs to the approved current-`main` run. Save evidence and stop safely. |
+| Labs 0–5 complete; dependency PR open and failing | Leave it unrepaired and open. Continue at [Lab 6](../6-merge-policy.md) to configure the ruleset, prove the required-check block, and only then repair it. |
+| Code fix submitted, results pending or failed | Inspect the latest revision and finish [Lab 3](../3-code-scanning.md). Do not count an older green revision. Keep pending CodeQL/Actions results pending. |
+| Dependency PR missing or closed; branch gone | Recreate the isolated `exercise/dependency-policy` branch from current `main` and follow [Lab 4](../4-dependencies.md) to observe the real failure. Never merge or install the lab manifest. |
+| Dependency fixture repaired before proving the ruleset block | Do not claim the block. If the initial failure was observed and the PR remains unmerged, restore only the isolated manifest to PyJWT 2.3.0, observe the actual required-check failure with the active ruleset, then repair it in Lab 6. |
+| Dependency PR accidentally merged | Stop. Do not install the manifest. Remove the unused fixture with a separate safe PR and mark the required unmerged-closure outcome incomplete. |
+| Safe application PR still open | Reopen it if possible and confirm the latest fix/test, checks, and CodeQL result. Continue at Lab 6; do not merge before the ruleset is active. |
+| Safe application PR already merged | Verify `debug=False`, the regression test, merge SHA, `main` checks, and alert status. If it was merged before the ruleset, do not claim a ruleset-enforced safe merge. A harmless notes-only PR through the active ruleset can provide recovery evidence, but label it as a recovery PR and keep the original merge state accurate. Never restore debug mode. |
+| Fresh template copy | Complete [Step 0](../0-setup.md), then Labs 1–5. Lab 4 must leave an observed failing dependency PR open for Lab 6. Keep unavailable or pending outcomes honest. |
 | App files intentionally changed since setup | Do not rerun the strict helper or overwrite them. Compare workflows manually with this kit, validate compatibility, and preserve the changes. |
 
 The preinstalled workflows do not need an installer. Optional recovery tooling checks the initial application's fingerprints and may reject an already remediated copy; use deliberate comparison and review for later changes.
+
+## Resume release work
+
+| State | Safe next action |
+|---|---|
+| `workshop-demo` configured; release workflow not installed | Verify the own-reviewer, bypass, and sole `main` branch settings. Then follow Lab 7's reviewed-PR procedure. If a required setting cannot be configured, stop before workflow installation and mark the outcome incomplete. |
+| Release workflow branch or PR already exists | Inspect the exact diff and latest checks. Resume that branch/PR; do not overwrite it or write directly to `main`. |
+| Workflow PR merged; release run pending or absent | Wait for the run for that exact merge SHA. If the push run did not start, dispatch the unchanged workflow from current `main` and record that SHA. |
+| Release prerequisite failed, queued, skipped, or cancelled | Do not approve. Wait or rerun the full workflow on current `main`; missing/pending results are not successful. |
+| Release run is stale | Cancel it and start a current-`main` run. The post-approval guard must still reject any stale revision. |
+| Receipt expired or checksum not verified | Do not reconstruct the old artifact or claim verification. Run the current workflow again if permitted, observe a new approval wait, and record its new run attempt and receipt. |
+| Required reviewer cannot be configured | Stop before installing the workflow. Do not use a facilitator/second person's approval or administrator bypass; record the limitation as incomplete. |
 
 ## Refresh a branch safely
 
@@ -86,5 +100,5 @@ When pausing, verify safe commits are pushed, then explicitly stop this codespac
 
 [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow) and [keeping a pull request up to date](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch).
 
-| [Previous: take-home index](README.md) | [Next: merge policy](1-enforce-merge-policy.md) |
+| [Previous: take-home index](README.md) | [Next: Lab 6 merge policy](../6-merge-policy.md) |
 |:---|---:|

@@ -4,17 +4,17 @@
 
 Bundled files remove installation steps. Verify each learner's account access, repository security settings, and Codespaces setup separately in a fresh copy.
 
-Template 0.1.0 is a prerelease in **frye/pets-devsecops-workshop-template**. Participants copy only this repository. The original app and previous companion are read-only provenance, recorded in [the source manifest](../../template-source.json).
+Candidate version 0.2.0 is being prepared in **frye/pets-devsecops-workshop-template**; no 0.2.0 GitHub release or learner rehearsal is claimed. The published `v0.1.0` remains immutable. Participants copy only this repository. The original app and previous companion are read-only provenance, recorded in [the source manifest](../../template-source.json).
 
 ## This template's checks
 
 The app and complete workshop are bundled. Exactly two root workflows, `ci.yml` and `dependency-review.yml`, match the bundled starters. The release and job-token starters remain inactive. Neutral CODEOWNERS has no inherited reviewer, and the intentional debug-startup finding is preserved.
 
-Local validation covers template inventory, repository-relative guide links, independent Git history, missing/mismatched installed workflows, safe recovery, the startup fix/test, release guards, and token error/cleanup behavior. Published results are recorded in [template validation evidence](fixtures/template-validation.json); pending values are not successes.
+The local suite covers template inventory, repository-relative guide links, independent Git history, missing/mismatched installed workflows, safe recovery, the startup fix/test, release guards, token error/cleanup behavior, and the learner-run Labs 4/6/7 contract. The candidate's source checks do not prove GitHub settings, environment approval, artifact behavior, or learner timing. [Template validation evidence](fixtures/template-validation.json) separates executed v0.2.0 source-level checks and pending candidate live gates from the grouped historical v0.1.0 GitHub observations; pending values are not successes.
 
-This repository's [initial CI run](https://github.com/frye/pets-devsecops-workshop-template/actions/runs/35960087578) passed API tests and client build. Its [harmless PR](https://github.com/frye/pets-devsecops-workshop-template/pull/1) reported all three core checks after dependency graph became ready. The initial review attempt failed on availability, not an advisory; the cause of that transient state was not established. No failing result was bypassed.
+The published v0.1.0 state had an [initial CI run](https://github.com/frye/pets-devsecops-workshop-template/actions/runs/35960087578) with passing API tests and client build. Its [harmless PR](https://github.com/frye/pets-devsecops-workshop-template/pull/1) reported all three core checks after dependency graph became ready. The initial review attempt failed on availability, not an advisory; the cause of that transient state was not established. These URLs are historical v0.1.0 evidence, not checks for candidate 0.2.0. No failing result was bypassed.
 
-[CodeQL baseline analysis](https://github.com/frye/pets-devsecops-workshop-template/actions/runs/35960102321) succeeded and reported [the intended debug finding](https://github.com/frye/pets-devsecops-workshop-template/security/code-scanning/1) at `app/server/app.py:83`. The finding stays open so learners can fix it in their copies. These are observations in the template itself, not a freshly generated learner copy.
+[The v0.1.0 CodeQL baseline analysis](https://github.com/frye/pets-devsecops-workshop-template/actions/runs/35960102321) succeeded and reported [the intended debug finding](https://github.com/frye/pets-devsecops-workshop-template/security/code-scanning/1) at `app/server/app.py:83`. The finding stays open so learners can fix it in their copies. These are observations in the template itself, not a freshly generated learner copy or candidate 0.2.0 CI result.
 
 No second live learner repository is created by this implementation. Tests inside this template repository and disposable local copies cannot prove the complete GitHub **Use this template** experience. That remains a separate human/authorized validation step.
 
@@ -31,9 +31,10 @@ The underlying application has known dependency alerts. Successful functional te
 | Fresh GitHub template copy | Own public repository created through the new template, all bundled files present, core checks operating on the initial/main and starter-PR revisions |
 | Repository security | Dependency graph, CodeQL default setup, secret scanning, and push protection verified in that new copy; settings are not assumed inherited |
 | Codespaces | Actual creation with known payer/usage, existing checkout, harmless push, secret block/repair, stop/resume and persistence |
-| Independent learner completion | Written live/take-home instructions followed from fresh, partial, and resumed states without hidden setup |
+| Independent learner completion | A learner follows the self-service core Labs 6–7 and recovery instructions from fresh, partial, and resumed states without hidden setup |
+| Ruleset and release capability | An authorized learner repository confirms CodeQL merge-protection availability, exact ruleset enforcement, environment approval wait, artifact upload, and receipt checksum |
 | File-editor fallback | Actual blocked commit and clean retry, distinct from terminal history repair |
-| Pacing and venue | Representative learners, planned staffing/network, and measured core duration without bypasses |
+| Pacing and venue | Representative learners, planned staffing/network, and a measured 120-minute duration without bypasses; current per-lab times are design budgets only |
 | Event-date review | Template version, dependency advisories, action pins, and inactive fixture behavior rechecked |
 
 The earlier authoring environment lacked Codespaces OAuth scope and an authenticated browser page handle. No further authentication or billing change is made to force that check. [The inherited access record](fixtures/codespaces-rehearsal.json) is historical context, not a new access test.
