@@ -70,7 +70,7 @@ def main():
             info = ZipInfo(basename + "/" + name, (2026, 1, 1, 0, 0, 0))
             info.compress_type = ZIP_DEFLATED
             info.create_system = 3
-            info.external_attr = (0o100755 if name.endswith(".sh") else 0o100644) << 16
+            info.external_attr = (0o100755 if path.stat().st_mode & 0o111 else 0o100644) << 16
             bundle.writestr(info, path.read_bytes())
     checksum = digest(archive.read_bytes())
     archive.with_suffix(".zip.sha256").write_text(f"{checksum}  {archive.name}\n")

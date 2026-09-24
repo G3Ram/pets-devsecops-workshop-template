@@ -12,6 +12,10 @@ The app and complete workshop are bundled. Exactly two root workflows, `ci.yml` 
 
 Local validation covers template inventory, repository-relative guide links, independent Git history, missing/mismatched installed workflows, safe recovery, the startup fix/test, release guards, and token error/cleanup behavior. Published results are recorded in [template validation evidence](fixtures/template-validation.json); pending values are not successes.
 
+This repository's [initial CI run](https://github.com/frye/pets-devsecops-workshop-template/actions/runs/35960087578) passed API tests and client build. Its [harmless PR](https://github.com/frye/pets-devsecops-workshop-template/pull/1) reported all three core checks after dependency graph became ready. The initial review attempt failed on availability, not an advisory; the cause of that transient state was not established. No failing result was bypassed.
+
+[CodeQL baseline analysis](https://github.com/frye/pets-devsecops-workshop-template/actions/runs/35960102321) succeeded and reported [the intended debug finding](https://github.com/frye/pets-devsecops-workshop-template/security/code-scanning/1) at `app/server/app.py:83`. The finding stays open so learners can fix it in their copies. These are observations in the template itself, not a freshly generated learner copy.
+
 No second live learner repository is created by this implementation. Tests inside this template repository and disposable local copies cannot prove the complete GitHub **Use this template** experience. That remains a separate human/authorized validation step.
 
 ## Historical source-kit evidence

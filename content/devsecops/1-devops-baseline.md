@@ -34,7 +34,7 @@ Record the green baseline run, the job's repository read permission, and two bli
 
 ## Resources
 
-[Continuous integration](https://docs.github.com/en/actions/get-started/continuous-integration) explains automated feedback. The existing [Pets testing lesson](https://github.com/github-samples/pets-workshop/blob/d2437a6f3dbb1fe4bd5e97790ccc12c42cbfc03a/content/github-actions/3-running-tests.md) covers a broader pipeline; use Node 24 for this track, not its older Node 20 example.
+[Continuous integration](https://docs.github.com/en/actions/get-started/continuous-integration) explains automated feedback. This template's [CI starter](starter/ci.yml) uses Node 24 for Astro 6; inspect the matching installed file in your own copy.
 
 [GITHUB_TOKEN](https://docs.github.com/en/actions/concepts/security/github_token) documents the job identity, repository scope, and lifetime. [Authentication examples](https://docs.github.com/en/actions/tutorials/authenticate-with-github_token) show job-level permission grants.
 

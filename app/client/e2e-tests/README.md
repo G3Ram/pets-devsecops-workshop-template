@@ -8,18 +8,20 @@ These are an optional maintainer extension, not participant setup. Start the lea
 
 Browser tests exercise the real frontend/API interaction that mocked unit tests do not cover.
 
-## Test Files
+## Test files
 
 - `homepage.spec.ts` - Tests for the main homepage functionality
 - `about.spec.ts` - Tests for the about page
 - `dog-details.spec.ts` - Tests for individual dog detail pages
 - `api-integration.spec.ts` - Tests for API integration and error handling
 
-## Running Tests
+## Running tests
+
+Run these optional commands from `app/client`, not from this test directory.
 
 ### Prerequisites
 
-Make sure you have installed dependencies:
+Install dependencies in the separate maintainer environment:
 ```bash
 npm install
 ```
@@ -29,7 +31,7 @@ You also need Python 3 with Flask dependencies installed:
 pip install -r ../server/requirements.txt
 ```
 
-### Running Tests
+### Commands
 
 ```bash
 # Run all tests
@@ -45,7 +47,7 @@ npm run test:e2e:headed
 npm run test:e2e:debug
 ```
 
-## Test Architecture
+## Test architecture
 
 Tests run against the real Flask server with a separate test database seeded with deterministic data. When Playwright starts, it:
 
@@ -56,25 +58,25 @@ Tests run against the real Flask server with a separate test database seeded wit
 
 From the client root, the test data is defined in `../server/utils/seed_test_database.py`.
 
-## Test Coverage
+## Test coverage
 
 The tests cover the following core functionality:
 
-### Homepage Tests
+### Homepage tests
 - Page loads with correct title and content
 - Dog list displays properly
 
-### About Page Tests
+### About page tests
 - About page content displays correctly
 - Navigation back to homepage works
 
-### Dog Details Tests
+### Dog details tests
 - Navigation from homepage to dog details
 - Full dog details display correctly
 - Navigation back from dog details to homepage
 - Handling of invalid dog IDs
 
-### API Integration Tests
+### API integration tests
 - Dogs render correctly on the homepage
 - Dog details render correctly
 - 404 handling for non-existent dogs

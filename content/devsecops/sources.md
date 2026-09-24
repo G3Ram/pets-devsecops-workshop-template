@@ -10,7 +10,7 @@ The original Pets source inspected locally and through the GitHub API is [d2437a
 
 The learner entry point is [frye/pets-devsecops-workshop-template](https://github.com/frye/pets-devsecops-workshop-template). It contains the pinned application and the workshop derived from [companion v0.1.2](https://github.com/frye/pets-devsecops-workshop/tree/ea050921bb902668d3e4fad5556548981c16cb91). Those links are attribution only: do not use either source for participant setup or send changes there. [template-source.json](../../template-source.json) records the inputs and deliberate overlays.
 
-Standard `ubuntu-24.04` runners use Python 3.14 and Node 24. [Astro 6's upgrade guide](https://docs.astro.build/en/guides/upgrade-to/v6/) requires Node >=22.12. Existing Pets lessons are preserved; their older Node 20 examples are not reused here.
+Standard `ubuntu-24.04` runners use Python 3.14 and Node 24. [Astro 6's upgrade guide](https://docs.astro.build/en/guides/upgrade-to/v6/) requires Node >=22.12. Other Pets workshop tracks are not included in this template; follow the bundled DevSecOps guide.
 
 The Python constraints were resolved with pip for the existing three direct requirements. Linux's `greenlet` version was verified against PyPI. Both functional workflows use the same constraint block. It is an updateable version snapshot, not a full hash lock. [Take-home maintenance](take-home/3-maintain-dependencies.md) explains direct pins and snapshot refresh.
 
@@ -42,7 +42,7 @@ Maintainers can resolve a candidate tag with `gh api repos/OWNER/ACTION/git/ref/
 | Job-token identity | [GITHUB_TOKEN](https://docs.github.com/en/actions/concepts/security/github_token): distinct per-job installation token, repository scope and effective lifetime; [authentication tutorial](https://docs.github.com/en/actions/tutorials/authenticate-with-github_token): job-level `issues: write` example |
 | Cloud identity guidance only | [OIDC overview](https://docs.github.com/en/actions/concepts/security/openid-connect), [claims/trust reference](https://docs.github.com/en/actions/reference/security/oidc), [Azure](https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-azure), and [AWS](https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-aws) |
 
-For v0.1.1, these identity sources were read on 2026-09-22 UTC. The OIDC reference explicitly distinguishes ID-bearing immutable subjects for new GitHub.com repositories after July 15, 2026. Provider trust must match the actual subject and audience; older name-only examples are not universal templates. The optional issue workflow requests no ID token and contains no provider login or new external action pin.
+For the earlier companion v0.1.1, these identity sources were read on 2026-09-22 UTC. The OIDC reference explicitly distinguishes ID-bearing immutable subjects for new GitHub.com repositories after July 15, 2026. Provider trust must match the actual subject and audience; older name-only examples are not universal templates. The optional issue workflow requests no ID token and contains no provider login or new external action pin.
 
 The candidate PyJWT 2.10.1 was rejected during authoring because the advisory API reported a later high-severity issue. Recheck the shipped repair before each event. An advisory lookup does not prove GitHub discovered the exercise manifest; actual workflow evidence is recorded separately.
 
