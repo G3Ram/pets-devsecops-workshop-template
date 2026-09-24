@@ -5,7 +5,7 @@
 
 ## Why it matters
 
-With up to 90 participant-owned laptops and one presenter plus 1-2 helpers, there is little room for live account repair. Require prework and keep to one narrated route.
+With up to 90 participant-owned laptops and one facilitator plus 1-2 helpers, prework is essential. Use Codespaces as the primary route, but let learners operate only in their own public repositories. Facilitators and helpers guide and troubleshoot; they do not configure settings, approve runs, or complete learner steps for them.
 
 ## Before announcing the event
 
@@ -21,17 +21,17 @@ Collect learner repository, starter-PR, and CI run URLs, plus the bundled templa
 
 Narrate **Codespaces**, using the browser-based VS Code editor and integrated terminal. Keep the local Git and file-editor fallback references available for helpers rather than repeating every route. Assign the 1-2 helpers to tables or zones, prioritizing access/startup, Git problems, and the three individual exercises. At maximum capacity, a helper may cover 45-90 learners; revisit capacity if advance readiness is insufficient.
 
-Confirm power, Wi-Fi, GitHub sign-in, the Codespaces editor/terminal and reconnection, and Actions access on representative personal/company-managed laptops. Check allowed quota or sponsorship before startup; do not change billing or machine size to force access. Use one smallest suitable codespace per learner repo, normally two cores, and no required custom devcontainer or app install. Neither a partner's run nor the presenter's repo completes another attendee's checkpoint.
+Confirm power, Wi-Fi, GitHub sign-in, the Codespaces editor/terminal and reconnection, and Actions access on representative personal/company-managed laptops. Check allowed quota or sponsorship before startup; do not change billing or machine size to force access. Use one smallest suitable codespace per learner repo, normally two cores, and no required custom devcontainer or app install. Neither a partner's run nor a facilitator's repository completes another attendee's checkpoint.
 
-## Prepare the two demonstrations
+## Prepare to support Labs 6–7
 
-Use a separate, explicitly authorized facilitator repository. Never change participant settings for them.
+No separate facilitator repository is required for the core merge-policy or release exercises. Each learner works in their own repository and performs their own settings changes and approvals. Before the event:
 
-1. Complete Step 0 and the code/dependency exercises there.
-2. Use [take-home Lab 1](take-home/1-enforce-merge-policy.md) to configure rules, confirm neutral CODEOWNERS, and prepare a separate dependency PR with real failure and repair evidence.
-3. Configure `workshop-demo` before installing [release-simulation.yml](starter/release-simulation.yml). Follow [Lab 2](take-home/2-approve-a-release.md), including main-only policy, solo approval, exact-SHA checks, negative test, and receipt inspection.
-4. Keep separate safe application and dependency-training PRs. During the demonstration, merge only the safe one; close the fixture PR without merging.
-5. Save labeled recordings/transcripts only from actual runs, with source URLs, revision, date, and kit version. If no recording exists, say so. [Expected-result examples](fixtures/evidence-examples.md) are not recordings.
+1. Review [Lab 6](6-merge-policy.md), [Lab 7](7-delivery-and-response.md), and the [resume guide](take-home/0-resume.md) so helpers can identify safe recovery states.
+2. Confirm the documented ruleset has no bypass, requires zero approvals, names the three exact Actions checks, requires the branch to be up to date, omits merge queue, and selects CodeQL at High or higher.
+3. Confirm the environment instructions require the learner's own account as reviewer, self-review prevention off for training, administrator bypass disabled, and exactly one branch rule (`main`) before the optional workflow is installed.
+4. Remind learners that Lab 4's dependency PR must stay open and failing until Lab 6. Do not demonstrate a repaired state first or accept a queued/missing check as a block.
+5. Use only the bundled [incident card](fixtures/incident-card.md) and evidence references to coach the learner's own decision. Examples, recordings, and facilitator runs can explain a control but never count as learner evidence.
 
 ## Run the room
 
@@ -41,21 +41,23 @@ Use a separate, explicitly authorized facilitator repository. Never change parti
 | 08-15 | Baseline and functional blind spots |
 | 15-21 | Three-row threat model |
 | 21-38 | Individual code fix/test; start scans |
-| 38-53 | Callback to code results; dependency failure then repair |
+| 38-53 | Callback to code results; create/observe dependency failure and leave its PR open |
 | 53-65 | Individual secret-protection attempt and clean retry |
-| 65-75 | Merge-policy demonstration; helpers revisit pending individual results |
-| 75-83 | Release demonstration and incident card |
-| 83-90 | Closing, honest evidence, take-home resume point |
+| 65-89 | Learners configure rules, prove the failed-check block, repair the fixture, and merge only safe work |
+| 89-113 | Learners configure the environment, merge the reviewed workflow, approve/verify a release, and complete the incident card |
+| 113-120 | Record individual evidence, identify resume state, and stop safely |
 
-After a four-minute wait, continue with the next independent activity and revisit the result at its callback. This is a facilitation threshold, not an Actions service promise. Do not repair a dependency before its initial failure is observed and then count the cycle as complete.
+The agenda covers event minutes 0 through 120 exactly. Budgets are design targets, not a rehearsed guarantee; pending service results may remain after the session.
 
-At minute 80, stop starting new troubleshooting/edit cycles. At minute 83, begin closing regardless of queues. Keep missing outcomes pending/incomplete. Never bypass secret protection, required checks, code-scanning policy, or approval to finish on time.
+After a four-minute wait, continue with an independent step and revisit the result at its callback. This is a facilitation threshold, not an Actions service promise. If the Lab 4 dependency result is still pending, learners may set up the ruleset in Lab 6 but must return to the actual failed run before claiming a block or repairing the fixture. During Lab 7, learners can complete the incident card while release checks run; they must observe all three successful prerequisites and the environment approval wait before approving.
+
+At minute 113, stop starting new troubleshooting/edit cycles and begin closing. Keep queued, unavailable, or unverified outcomes pending/incomplete; if familiar learners need more time, let them resume later rather than rushing. Never bypass secret protection, required checks, code-scanning policy, or approval to finish on time.
 
 At closing, have learners save and push intended safe work and explicitly stop their own codespace. Closing a tab does not stop compute; stopped storage still counts. Keep forwarded ports private. Preserve needed work and evidence before deletion, and reopen the same space for take-home.
 
 ## Optional identity practice
 
-During lesson 1's existing seven minutes, identify the job's GitHub App installation identity and read-only scope alongside the CI commands. Point to [the self-service workload-identity lab](take-home/4-workload-identity.md) for later practice. Offer its two-job permission exercise as optional take-home or a separately scheduled follow-along. Do not add a fourth required individual outcome to the 75-minute core; keep the secret exercise and all timeboxes unchanged.
+During lesson 1's existing seven minutes, identify the job's GitHub App installation identity and read-only scope alongside the CI commands. Point to [the self-service workload-identity lab](take-home/4-workload-identity.md) for later practice. Offer its two-job permission exercise as optional take-home or a separately scheduled follow-along. Do not add another required outcome to the 120-minute core or displace the secret, merge-policy, or release exercises.
 
 Learners copy the bundled optional workflow in Codespaces and install it through a reviewed PR. Its jobs execute only in Actions. Do not run the proof with the developer `GITHUB_TOKEN` or print either credential. OIDC remains reading only; no cloud account, PAT, or new app is required.
 
@@ -67,7 +69,7 @@ Work only in a checkout of `frye/pets-devsecops-workshop-template`. From its roo
 python3 -m unittest discover -s content/devsecops/tests -v
 python3 content/devsecops/scripts/validate-kit.py
 bash -n content/devsecops/scripts/prepare-devsecops.sh
-actionlint content/devsecops/starter/ci.yml content/devsecops/starter/dependency-review.yml content/devsecops/starter/release-simulation.yml content/devsecops/starter/token-permissions.yml
+actionlint .github/workflows/ci.yml .github/workflows/dependency-review.yml content/devsecops/starter/ci.yml content/devsecops/starter/dependency-review.yml content/devsecops/starter/release-simulation.yml content/devsecops/starter/token-permissions.yml
 python3 content/devsecops/scripts/build-kit.py --refresh-manifest --output-dir /path/to/template-output
 python3 content/devsecops/scripts/build-kit.py --output-dir /path/to/second-output
 ```

@@ -50,7 +50,7 @@ CodeQL's `py/flask-debug` rule identifies a configuration that can expose the We
    git push
    ```
 
-5. On GitHub.com, confirm CI and CodeQL started for the updated PR. Do not install dependencies or run these tests in the codespace. Continue to dependencies while Actions runs; check back at the start of lesson 4 and during the demonstrations.
+5. On GitHub.com, confirm CI and CodeQL started for the updated PR. Do not install dependencies or run these tests in the codespace. Continue to dependencies while Actions runs; check back at the start of Lab 4, during Lab 5, and in Lab 6 before merging.
 
 If Codespaces is unavailable, the [local Git fallback](0-setup.md#fallback-a-local-vs-code-and-git) uses the same commands. The [file-editor fallback](0-setup.md#fallback-b-github-file-editor) applies the same two edits on `exercise/shelter-change`; evaluate the last commit containing both changes.
 

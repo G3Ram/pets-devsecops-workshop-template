@@ -75,6 +75,8 @@ The bundled `scripts/prepare-devsecops.sh` is optional recovery tooling, not req
 | Dependency job passes but package is absent | Inspect the dependency diff for `workshop-lab/dependency/requirements.txt`, PyJWT, and the exact version. Empty discovery is incomplete, not a passing fixture exercise. Keep the threshold high. |
 | Dependency review says unsupported/not ready, or its API returns 403 | Confirm dependency graph is enabled in **Settings > Advanced Security** and your account is permitted to use it. Wait up to five minutes, then rerun once. If it still fails, escalate with the run URL. This is availability/setup failure, not advisory detection; do not lower the threshold or enable a bypass. |
 | Dependency repair still fails | Read the actual advisory and affected range. A newer advisory may require a kit update. Do not add allowlists or `warn-only`, and do not silently substitute an unverified version. |
+| Lab 4 dependency PR was repaired before Lab 6 proved the block | Do not claim the merge-policy block. If the PR is still open/unmerged and its original failure is recorded, restore only the isolated manifest to PyJWT 2.3.0, activate the ruleset, observe a completed failed required check, then repair it in Lab 6. Never install the manifest. |
+| Dependency training PR was merged by mistake | Do not install it or claim an unmerged closure. Remove the unused manifest through a separate safe PR and record the required Lab 6 outcome as incomplete. |
 
 ## Secrets
 
@@ -107,9 +109,10 @@ If the supplied fixture is not blocked, mark the result incomplete. Do not bypas
 | Passing checks but merge blocked | Inspect missing/stale checks, up-to-date requirement, unresolved reviews, and code-scanning policy. Update the branch normally and wait for the new revision. Do not bypass. |
 | Release workflow guard fails | Inspect its specific error. The workflow must be on `main`; `workshop-demo` must already have a reviewer and exactly one branch-only `main` rule. API failures are blocking, not success. |
 | No approval wait | Stop. Verify environment name/settings before treating the run as an approved release. |
-| Solo approval unavailable | Add your account as required reviewer and leave self-review prevention off for this training environment. Keep administrator bypass disabled. |
+| Required reviewer cannot be configured | Stop before installing the release workflow. Do not use a facilitator's/second person's approval or administrator bypass; record the platform or policy limitation as incomplete. |
 | Waiting release is stale | Cancel it. Run current `main` and wait for its prerequisites. An old green run cannot validate a new SHA. |
 | Receipt expired or upload failed | Record expiration/failure. A rerun creates a new attempt and needs its own prerequisites/approval; do not reconstruct a receipt and call it the original. |
+| Receipt fields look right but checksum was not run | Do not claim independent verification. Download the actual artifact and run `sha256sum -c receipt.sha256` or `shasum -a 256 -c receipt.sha256` from Codespaces/local Git; a file-editor-only route must record this as unverified. Keep the receipt checksum distinct from the uploaded archive digest. |
 
 ## Checkpoint
 

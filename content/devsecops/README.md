@@ -5,10 +5,10 @@
 
 You're volunteering at the dog shelter. Its Flask API and Astro website pass their functional tests. Now you need to check what happens when a change leaves the debugger enabled, introduces a vulnerable package, or includes a credential.
 
-You'll fix code, review a dependency change, and practice secret protection in your own public repository. The presenter demonstrates merge policy and a cloud-free release. The [take-home labs](take-home/README.md) include the instructions and files to perform those two exercises yourself afterward.
+You'll fix code, observe a vulnerable dependency-review failure, and practice secret protection in your own public repository. You will then configure merge policy and run a cloud-free release simulation in that same repository. The [take-home companions](take-home/README.md) support recovery and extended validation; Labs 6 and 7 below are the canonical procedures.
 
 > [!IMPORTANT]
-> Template **0.1.0** bundles the application, complete workshop, and two installed core workflows. It is a prerelease: the [readiness register](readiness.md) separates this template's checks, historical source-kit evidence, and pending Codespaces/human walkthroughs.
+> Candidate **0.2.0** bundles the application, complete workshop, and two installed core workflows. It is not a production-ready application or a claim of a live learner rehearsal. The [readiness register](readiness.md) separates source-level validation, historical evidence, and pending GitHub/Codespaces/human checks. The published `v0.1.0` release remains immutable.
 
 ## What you need
 
@@ -32,21 +32,21 @@ These are design budgets. No representative learner rehearsal has established th
 | [1. DevOps baseline](1-devops-baseline.md) | 08-15 | 7 | Shared discussion |
 | [2. Security planning](2-security-planning.md) | 15-21 | 6 | Shared planning |
 | [3. Code scanning](3-code-scanning.md) | 21-38 | 17 | Individual fix and test |
-| [4. Dependencies](4-dependencies.md) | 38-53 | 15 | Individual failure and repair |
+| [4. Dependencies](4-dependencies.md) | 38-53 | 15 | Observe failure; leave the PR open and unrepaired |
 | [5. Secrets](5-secrets.md) | 53-65 | 12 | Individual block and clean retry |
-| [6. Merge policy](6-merge-policy.md) | 65-75 | 10 | Facilitator demonstration |
-| [7. Delivery and response](7-delivery-and-response.md) | 75-83 | 8 | Facilitator demonstration |
-| [8. Closing](8-wrap-up.md) | 83-90 | 7 | Evidence and questions |
+| [6. Merge policy](6-merge-policy.md) | 65-89 | 24 | Individual ruleset, blocked check, repair, safe merge |
+| [7. Delivery and response](7-delivery-and-response.md) | 89-113 | 24 | Individual environment, release approval, incident decision |
+| [8. Closing](8-wrap-up.md) | 113-120 | 7 | Record live evidence and questions |
 
-The core totals 75 minutes; startup and closing bring the event to 90. Playwright, cloud deployment, and participant settings changes for lessons 6-7 are outside that core.
+The complete agenda, including setup and closing, totals exactly 120 minutes. The first 65 minutes preserve the existing setup and Labs 1–5 budgets; Labs 6 and 7 each receive 24 minutes for learner-operated settings and PR work. These budgets have not been verified in a live learner rehearsal. Actions or CodeQL latency may leave a result pending; the schedule never justifies bypassing a control or calling a pending result successful.
 
-For optional practice afterward, [prove a workflow's GitHub API permissions](take-home/4-workload-identity.md) yourself: observe a denied request, then a separate narrowly authorized job and its closed training issue. The guide also points to OIDC for future cloud identity work. Neither extends core setup or replaces the secret-protection exercise.
+For optional practice after the 120-minute workshop, [prove a workflow's GitHub API permissions](take-home/4-workload-identity.md): observe a denied request, then a separate narrowly authorized job and its closed training issue. The guide also points to OIDC for future cloud identity work. It does not replace any core exercise.
 
 ## Using this kit
 
 Create your learner copy from [frye/pets-devsecops-workshop-template](https://github.com/frye/pets-devsecops-workshop-template), then open a codespace on **your copy's `main`**. The app and this guide are already in that checkout, with both core workflows installed. [Step 0](0-setup.md) verifies Actions and your own security settings before the first PR.
 
-No companion fetch, workflow-install script, or second application clone is required. The [template release](https://github.com/frye/pets-devsecops-workshop-template/releases/tag/v0.1.0) records the version and complete archive; the template UI copies the current default branch. Existing learner copies do not automatically receive future updates.
+No companion fetch, workflow-install script, or second application clone is required. The manifest identifies the current `0.2.0` candidate; the published [v0.1.0 release](https://github.com/frye/pets-devsecops-workshop-template/releases/tag/v0.1.0) remains an immutable historical archive. A future release of this candidate must be published separately. The template UI copies the current default branch; existing learner copies do not automatically receive future updates.
 
 Use one codespace for your learner repository. Saving changes in the editor does not commit or push them. Preserve intended work on GitHub and [stop the codespace explicitly](0-setup.md#08-stop-and-reuse-your-codespace) when finished; closing its tab does not stop compute. Stopped storage still counts toward usage. Keep forwarded ports private; no app hosting is added.
 
@@ -64,7 +64,7 @@ Lesson, starter, solution, and take-home links stay within this copy. Read-only 
 
 ## Why it matters
 
-The shelter needs evidence about both functionality and risk. Each lesson identifies the control, its owner, and the result needed to proceed. Mark checks pending until their results arrive. Watching the presenter run an exercise does not complete your individual exercise.
+The shelter needs evidence about both functionality and risk. Each lesson identifies the control, its owner, and the result needed to proceed. Mark checks pending until their results arrive. Examples, expected-result tables, recordings, and another person's repository are references only; they do not complete your individual exercise.
 
 ## Optional primers
 

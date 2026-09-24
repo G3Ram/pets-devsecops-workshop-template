@@ -14,8 +14,8 @@ Similar green/red indicators can mean different things. Check the revision, the 
 | Dependency failure | High advisory, affected version, failed `dependency-review` job | Network/API failure unrelated to an advisory |
 | Blocked secret attempt | Provider/pattern, path and unpublished commit(s), rejection | A generic Git authentication failure |
 | Repaired secret attempt | Clean commit/push succeeds, no fixture in submitted history | Adding a later deletion commit while earlier commits still contain it |
-| Merge policy | Active rule and failed required check listed as blocking | A draft PR or merge conflict blocking for another reason |
-| Release | Waiting approval, successful prerequisites at same SHA, then receipt | A receipt produced without the approval wait |
+| Merge policy | Active own-repository rule and completed failed required `dependency-review` job listed as blocking | A draft PR, queued/missing check, or merge conflict blocking for another reason |
+| Release | Own-run approval wait, successful prerequisites at the same SHA, and matching receipt/artifact | A receipt produced without the approval wait or from another SHA |
 
 ## Receipt fields
 
@@ -34,11 +34,11 @@ environment: workshop-demo
 
 The summary adds the artifact ID/URL and uploaded archive digest after upload. `receipt.sha256` checks the receipt file itself. Neither digest is a signature or a claim of production deployment.
 
-For a real recorded example, open [the author's downloaded receipt](recorded-release/receipt.json), [checksum](recorded-release/receipt.sha256), and [provenance](recorded-release/metadata.json). They came from the linked successful run after an observed approval wait and REST approval. The three-day Actions artifact may expire; these preserved files remain labeled **recorded author evidence**, never a learner's live completion.
+For a preserved author example, open [the downloaded receipt](recorded-release/receipt.json), [checksum](recorded-release/receipt.sha256), and [provenance](recorded-release/metadata.json). They came from the linked successful run after an observed approval wait and REST approval. The three-day Actions artifact may expire; these preserved files remain **historical author evidence**, never a learner's live completion.
 
 ## Recording a fallback
 
-A usable recording names its source repository, PR/run URLs, kit version, date, route, and whether it depicts a failure or repair. Redact fixture values and private data. State **recorded demonstration** when playing it. No recording is included merely because these expected fields are documented.
+A facilitator may use a clearly labeled historical recording to explain a control, with source repository, PR/run URLs, kit version, date, route, and failure/repair state. Redact fixture values and private data. A recording is explanatory only; it can never satisfy a learner's live evidence requirement. No recording is included merely because these expected fields are documented.
 
 ## Checkpoint and resources
 
