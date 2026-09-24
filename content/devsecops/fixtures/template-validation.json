@@ -1,0 +1,13 @@
+{
+  "template_version": "0.1.0",
+  "repository": "frye/pets-devsecops-workshop-template",
+  "status": "validation-in-progress",
+  "local_checks": "pending",
+  "main_ci": "pending",
+  "harmless_pr_checks": "pending",
+  "codeql_baseline": "pending",
+  "fresh_github_template_copy": "not-created-outside-authorized-repository-scope",
+  "codespaces": "not-retested-access-unavailable",
+  "human_walkthrough_and_timing": "pending",
+  "mutated_source_repositories": false
+}
