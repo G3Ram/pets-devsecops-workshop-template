@@ -5,7 +5,7 @@
 
 ## Why it matters
 
-A solution should explain the intended behavior and how to check it. Copying a fix without its evidence leaves the original question unanswered.
+A solution should explain the intended behavior and how to check it. Use the evidence to show that the fix works and answer the original question.
 
 Use the Codespaces editor and terminal for learner edits. Copy material from your checkout's `content/devsecops`, save it, review the staged files, then commit and push to the intended branch. Inspect checks and configure controls on GitHub.com. [Step 0](../0-setup.md) documents fallbacks; do not clone the app again or download another kit.
 

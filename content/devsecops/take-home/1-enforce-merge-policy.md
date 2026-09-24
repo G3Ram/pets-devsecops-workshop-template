@@ -5,7 +5,7 @@
 
 ## Why it matters
 
-Checks provide feedback; required checks prevent a merge that does not meet the policy. You will prove both a blocked and a repaired state without merging the training dependency.
+Checks provide feedback. Required checks block merges that do not meet policy. You will prove both a blocked and repaired state without merging the training dependency.
 
 ## 1. Prepare the safe PR
 
@@ -103,7 +103,7 @@ CodeQL merge protection primarily evaluates findings introduced in the PR's chan
    If `main` advanced, update the branch normally and inspect the new Actions checks on GitHub. Confirm all required checks pass and the PR is eligible for merge.
 7. **Do not click Merge.** Record the eligible state, then close this training PR without merging it. Delete its remote branch only if you no longer need it; the PR/run evidence remains available.
 
-A missing/queued check is a policy block, but it is not the dependency-failure proof. An empty dependency diff is not a successful discovery result. Keep either case incomplete until diagnosed.
+A missing or queued check blocks the merge, but it does not show that dependency review detected the fixture. An empty dependency diff also leaves the exercise incomplete. Keep either case incomplete until diagnosed.
 
 ## 4. Merge only safe application work
 

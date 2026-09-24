@@ -14,13 +14,13 @@ You'll fix code, review a dependency change, and practice secret protection in y
 
 Bring a laptop with internet access. Your GitHub.com account must be able to create and administer a public learner repository, run standard GitHub-hosted Actions, configure its security settings, and use Codespaces with sufficient included usage or approved sponsorship. Use only the shelter's public sample data.
 
-The primary route uses browser-based VS Code in **GitHub Codespaces**. Git and Bash are already available there; you do not clone the learner repository again or install the application. You need no laptop Python, Node.js, Docker, or Git installation, and no Azure account, Copilot subscription, second reviewer, or pasted PAT. Use the default image and smallest suitable permitted machine, normally two cores, for editing and Git.
+The primary route uses browser-based VS Code in **GitHub Codespaces**, where Git and Bash are already available. The learner repository is already checked out, so you do not clone it again or install the application. Your laptop needs no Python, Node.js, Docker, or Git; you also need no Azure account, Copilot subscription, second reviewer, or pasted PAT. Use the default image and smallest suitable permitted machine, normally two cores, for editing and Git.
 
-Codespaces compute and storage have usage limits and a payer; public repositories do not provide unlimited free Codespaces. Check access, quota, and who pays before starting. Standard Actions usage is separate. If policy, quota, or connectivity prevents the primary route, use the documented [local Git](0-setup.md#fallback-a-local-vs-code-and-git) or [file-editor fallback](0-setup.md#fallback-b-github-file-editor).
+Codespaces compute and storage have usage limits and a payer. Public repositories do not provide unlimited free Codespaces. Check access, quota, and who pays before starting. Standard Actions usage is separate. If policy, quota, or connectivity prevents the primary route, use the documented [local Git](0-setup.md#fallback-a-local-vs-code-and-git) or [file-editor fallback](0-setup.md#fallback-b-github-file-editor).
 
 Throughout these guides, **editor** and **terminal** mean the Codespaces editor and integrated Bash terminal unless labeled as a fallback. GitHub.com remains the place for PRs, settings, Actions dispatch/results, and approval. Application builds, tests, scans, and the optional token proof run in Actions, not Codespaces.
 
-Complete [Step 0](0-setup.md) before the event. The opening eight minutes only verify readiness.
+Finish [Step 0](0-setup.md) before the event. Use the opening eight minutes to verify readiness.
 
 ## Agenda
 
@@ -48,7 +48,7 @@ Create your learner copy from [frye/pets-devsecops-workshop-template](https://gi
 
 No companion fetch, workflow-install script, or second application clone is required. The [template release](https://github.com/frye/pets-devsecops-workshop-template/releases/tag/v0.1.0) records the version and complete archive; the template UI copies the current default branch. Existing learner copies do not automatically receive future updates.
 
-Reuse one codespace for the learner repository. Saving is not committing or pushing. Preserve intended work on GitHub and [stop the codespace explicitly](0-setup.md#08-stop-and-reuse-your-codespace) when finished; closing its tab does not stop compute. Stopped storage still counts toward usage. Keep forwarded ports private; no app hosting is added.
+Use one codespace for your learner repository. Saving changes in the editor does not commit or push them. Preserve intended work on GitHub and [stop the codespace explicitly](0-setup.md#08-stop-and-reuse-your-codespace) when finished; closing its tab does not stop compute. Stopped storage still counts toward usage. Keep forwarded ports private; no app hosting is added.
 
 Lesson, starter, solution, and take-home links stay within this copy. Read-only source attribution is in [sources](sources.md). Participants work only in their learner repositories; template maintainers send changes only to the new template repository.
 
@@ -64,7 +64,7 @@ Lesson, starter, solution, and take-home links stay within this copy. Read-only 
 
 ## Why it matters
 
-The shelter needs evidence about both functionality and risk. Each lesson identifies the control, the person responsible, and the result that would justify moving forward. A pending check stays pending; watching the presenter's successful run does not complete your individual exercise.
+The shelter needs evidence about both functionality and risk. Each lesson identifies the control, its owner, and the result needed to proceed. Mark checks pending until their results arrive. Watching the presenter run an exercise does not complete your individual exercise.
 
 ## Optional primers
 

@@ -58,7 +58,7 @@ Leave any unanswered row incomplete. A recording, absent dependency diff, succes
 
 The optional identity exercise is not another core requirement. Its OIDC references are further reading: GitHub issue authorization does not demonstrate Azure/AWS login or cloud resource access.
 
-An earlier local-terminal test is not Codespaces evidence. Record unobserved startup, configured authentication, workflow pushes, secret repair, or persistence as incomplete rather than borrowing another route's result.
+A local-terminal test does not verify Codespaces authentication. If you did not observe startup, configured authentication, workflow pushes, secret repair, or persistence in your own route, record that outcome as incomplete.
 
 ## Resources
 

@@ -5,19 +5,19 @@
 
 ## Why it matters
 
-Up to 90 participant-owned laptops with one presenter and 1-2 helpers leave little room for live account repair. Prework and a single narrated route are part of the delivery plan.
+With up to 90 participant-owned laptops and one presenter plus 1-2 helpers, there is little room for live account repair. Require prework and keep to one narrated route.
 
 ## Before announcing the event
 
 1. Direct learners only to [frye/pets-devsecops-workshop-template](https://github.com/frye/pets-devsecops-workshop-template). Their copies already contain the app, lessons, and two core workflows.
-2. Resolve every mandatory [readiness gate](readiness.md). Label source inspection and local tests separately from live GitHub results. A prerelease can support review, but it must not imply event readiness.
+2. Complete every mandatory [readiness gate](readiness.md). Distinguish source inspection and local tests from live GitHub results. Treat the prerelease as review material; it does not establish event readiness.
 3. Confirm the published template version before the event. Update source pins only through reviewed changes in this new repository, and do not silently change its default branch during a cohort.
-4. Rehearse actual template-copy creation, security settings, Codespaces startup, preinstalled CI, harmless commit/push, and stop/resume. Test local Git and file-editor fallbacks separately. Earlier native Linux tests do not prove Codespaces authentication.
-5. Rehearse with representative prepared learners and managed/personal laptops on the venue network. Record wall-clock editing, Actions latency, help requests, and every outcome. The arithmetic `8 + 75 + 7 = 90` is not timing evidence.
+4. Rehearse creating an actual template copy, checking security settings, starting Codespaces, running preinstalled CI, making a harmless commit/push, and stopping and resuming the space. Test local Git and file-editor fallbacks separately. Earlier native Linux tests do not establish that Codespaces authentication works.
+5. Rehearse with representative prepared learners and managed/personal laptops on the venue network. Record wall-clock editing, Actions latency, help requests, and every outcome. The equation `8 + 75 + 7 = 90` only confirms the minutes add up; rehearsal must show that the schedule fits.
 
 ## Prework and staffing
 
-Collect learner repository, starter-PR, CI run URLs, and bundled template version through existing communications. Ask whether Codespaces and a harmless push worked and whether the learner can stop/resume the space. Record fallback use. Do not collect tokens or private connection details or require another signup.
+Collect learner repository, starter-PR, and CI run URLs, plus the bundled template version, through existing communications. Ask if Codespaces opened, a harmless push succeeded, and the learner can stop/resume the space. Record fallback use. Do not collect tokens or private connection details or require another signup.
 
 Narrate **Codespaces**, using the browser-based VS Code editor and integrated terminal. Keep the local Git and file-editor fallback references available for helpers rather than repeating every route. Assign the 1-2 helpers to tables or zones, prioritizing access/startup, Git problems, and the three individual exercises. At maximum capacity, a helper may cover 45-90 learners; revisit capacity if advance readiness is insufficient.
 

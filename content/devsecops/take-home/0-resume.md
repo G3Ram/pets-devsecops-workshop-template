@@ -21,7 +21,7 @@ Your repository may have changed since the event. Establish its current state be
    test -f content/devsecops/workshop-kit.json
    ```
 
-3. Confirm the root is under `/workspaces` and origin names your learner repository. Saved files persist across stop/start and rebuild. A replacement space contains the committed template files, but not another space's unpushed work.
+3. Confirm the root is under `/workspaces` and origin names your learner repository. Saved files persist across stop/start and rebuild. A replacement space starts with the committed template files; unpushed work stays in the old space.
 4. Confirm `content/devsecops/workshop-kit.json` and the two root workflows exist in your copy. If missing, inspect branch/deletion history and follow [troubleshooting](troubleshooting.md); do not fetch an external kit or overwrite your application. Record your bundled version before considering a reviewed update.
 
 If quota prevents resuming, follow [the recovery guide](troubleshooting.md#codespaces-access-and-recovery) and preserve work before using a fallback. Do not delete a space to resolve an authentication or quota error.

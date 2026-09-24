@@ -3,7 +3,7 @@
 | [Previous: merge policy](6-merge-policy.md) | [Next: closing](8-wrap-up.md) |
 |:---|---:|
 
-Budget: 8 minutes. Facilitator demonstration and discussion. No participant environment, third workflow, or cloud account is required now.
+Budget: 8 minutes. The facilitator demonstrates the release simulation and leads the discussion. Participants do not need an environment, a third workflow, or a cloud account for this segment.
 
 Observe the run and approval on GitHub.com. Use your codespace for edits and Git; the release simulation runs in Actions. The take-home lab reuses the codespace to install the reviewed starter and verify the downloaded receipt.
 
@@ -19,13 +19,13 @@ Release approval is a decision about a particular revision and its evidence. A t
 4. Inspect the waiting `release` job, then approve the `workshop-demo` deployment. Solo self-approval is allowed in this training environment; it is not separation of duties.
 5. Open the run summary. Match the commit SHA and run attempt to the artifact ID, `receipt.json` checksum, and uploaded archive digest. The artifact contains only a simulation receipt, expires after three days, and deploys nothing.
 
-The release job checks current `main` again after approval. A stale run fails; cancel it and run the new revision. A concurrent branch change after the final check is still possible: this small simulation is not an atomic production promotion system.
+The release job checks current `main` again after approval. A stale run fails; cancel it and run the new revision. A branch can still change after the final check, so this simulation cannot provide atomic production promotion.
 
 If a prerequisite is delayed or fails, leave release blocked. Use discussion time or a clearly labeled earlier receipt with its real source links. Never approve a failed revision or remove protection to meet the timebox.
 
 ## Checkpoint
 
-Identify the approved revision and one response action. Your personal release configuration and receipt are outcomes of [take-home Lab 2](take-home/2-approve-a-release.md), not of watching this demonstration.
+Identify the approved revision and one response action. Watching this demonstration does not create your release configuration or receipt. Complete [take-home Lab 2](take-home/2-approve-a-release.md) to produce your own.
 
 ## Resources
 

@@ -72,7 +72,7 @@ If needed, the [local Git fallback](0-setup.md#fallback-a-local-vs-code-and-git)
 
 [GHSA-ffqj-6fqr-9h24](https://github.com/advisories/GHSA-ffqj-6fqr-9h24) is high severity and affects PyJWT `>=1.5.0,<2.4.0`. Version 2.3.0 is in that range. The first patch for that advisory was 2.4.0, but it is not the current repair used here: [GHSA-752w-5fwx-jx9f](https://github.com/advisories/GHSA-752w-5fwx-jx9f) affects versions through 2.11.0.
 
-The supplied repair is 2.14.0. The GitHub Advisory API returned no matching advisories for that version during authoring; this is a dated lookup, not a promise that it will remain vulnerability-free. A new advisory may require a new kit version. [Technical sources](sources.md) record the check.
+The supplied repair is 2.14.0. When the kit was authored, the GitHub Advisory API found no matching advisories for that version. Recheck before each event; this lookup does not guarantee the version will remain vulnerability-free. A new advisory may require a new kit version. [Technical sources](sources.md) record the check.
 
 The starter fails on **high** or **critical** severity across runtime, development, and unknown scopes. A green job with an empty dependency diff is not proof of fixture detection. If the manifest is absent, stop and report discovery failure; do not lower the threshold or install the fixture to force a result.
 

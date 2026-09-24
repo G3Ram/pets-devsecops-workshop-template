@@ -5,7 +5,7 @@
 
 ## Why it matters
 
-A workaround that removes the control also removes the evidence you came to collect. Preserve your work, diagnose the failure, and record incomplete outcomes honestly.
+Keep each control in place while you diagnose a failure. Preserve your work and mark any outcome without the required evidence as incomplete.
 
 ## Codespaces access and recovery
 
@@ -25,7 +25,7 @@ Use the Codespaces editor and integrated terminal for the primary route. Keep Gi
 | Optional workflow-file push is rejected | Preserve the commit and inspect the rejection. Confirm the learner target and policy. Use the file-editor fallback for that reviewed change if needed; don't widen scopes, add `write-all`, or create a privileged bootstrap. Core workflows are already installed. Reconcile divergent branches deliberately; no force push. |
 | Port opened or app started accidentally | Stop the process you started and leave forwarded ports private. Application hosting, dependency installation, and local tests are not part of this editing route; use the Actions jobs. |
 
-Codespaces' developer credential and an Actions job token can both be named `GITHUB_TOKEN`, but they have different scopes and lifecycles. Never print either, dump environment variables, or run the optional identity proof locally with the developer token.
+Codespaces' developer credential and an Actions job token may both be named `GITHUB_TOKEN`. They have different scopes and lifecycles. Never print either, dump environment variables, or run the optional identity proof locally with the developer token.
 
 Stop explicitly with **Codespaces: Stop Codespace** or the website's **Stop codespace** control. Closing the tab leaves compute running until timeout. Stopped spaces still use storage. Delete only your intended space after preserving safe work, receipts, and resume information.
 
