@@ -20,7 +20,7 @@ flowchart LR
     Review --> Approval["Approved release simulation"]
 ```
 
-This is a delivery sketch, not a claim that the workshop deploys a hosted service. The sample application has no learner authentication or customer-PII subsystem to add to the model.
+The sketch shows the delivery path; the workshop does not deploy a hosted service. The sample application has no learner authentication or customer-PII subsystem to add to the model.
 
 ## Try it
 

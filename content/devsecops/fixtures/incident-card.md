@@ -1,6 +1,6 @@
 # Incident card: an advisory after release
 
-Use during the release demonstration while checks run. This is a fictional response scenario, not a claim that the shelter was exploited.
+Use this card during the release demonstration while checks run. The scenario is fictional; it does not describe an actual shelter exploit.
 
 ## Scenario
 

@@ -5,11 +5,11 @@
 
 Budget: 7 minutes. The shelter's PR has a green build. What does that result cover?
 
-Keep the same Codespaces editor and terminal open for the participant work. Inspect checks on GitHub.com; the commands in their logs execute in Actions, not in your codespace.
+Keep the same Codespaces editor and terminal open for your work. View checks on GitHub.com. GitHub Actions runs the commands shown in the logs; they do not run in your codespace.
 
 ## Why it matters
 
-Functional checks catch regressions in behavior they exercise. The existing API tests mock database queries and never start the server, so a passing run says nothing about startup debug mode.
+Functional tests catch regressions in the behavior they exercise. The existing API tests mock database queries and never start the server, so they do not cover the startup debug setting.
 
 ## Try it
 

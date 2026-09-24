@@ -7,7 +7,7 @@ Budget: 7 minutes, outside the 75-minute core. Stop new troubleshooting at event
 
 ## Why it matters
 
-A useful workshop record separates controls you tested yourself from demonstrations you watched and work that remains unfinished.
+Record which controls you tested yourself, which demonstrations you watched, and what remains unfinished.
 
 ## Try it
 

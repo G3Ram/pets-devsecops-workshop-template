@@ -3,11 +3,11 @@
 | [Previous: closing](../8-wrap-up.md) | [Next: resume](0-resume.md) |
 |:---|---:|
 
-These labs turn the live merge/release demonstrations into individual practice. All instructions and starter files ship with this kit; completing them after the event is optional.
+These labs let you practice the merge and release demonstrations yourself. The kit includes all instructions and starter files. Take-home work is optional.
 
 ## Why it matters
 
-Configuring a rule is only part of the job. You also need to see a safe failure, repair it, and identify the revision the control allowed.
+Verify each rule by observing a safe failure, repairing it, and identifying the revision it allowed.
 
 Use the same eligible GitHub.com account, public learner repository, and **existing codespace**, subject to remaining usage or approved sponsorship. Reopen it at [github.com/codespaces](https://github.com/codespaces) rather than creating one per lab. No Azure account, new payment method, second reviewer, laptop runtime, or PAT is required. Respect employer and organization policies.
 

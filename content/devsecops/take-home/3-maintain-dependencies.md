@@ -5,7 +5,7 @@
 
 ## Why it matters
 
-New advisories can affect a previously reviewed revision. Update configuration helps surface changes, but someone still owns review, testing, and rollout.
+A previously reviewed revision can gain a new advisory. Update configuration can surface changes, but someone still needs to review, test, and roll them out.
 
 ## 1. Extend Dependabot coverage
 
@@ -63,7 +63,7 @@ The complete config avoids reconstructing indentation from the excerpt. If neede
 
 The inherited application manifest starts unpinned. Both functional workflows contain the same constraints in **Install workshop Python baseline**. They install only the application's manifest, never the lab fixture. This preserves the tested training baseline with only two core workflows active.
 
-The constraints cover the resolved dependencies for the selected runtimes, including Linux's `greenlet`. They pin versions without locking package hashes. Package indexes and advisories can change, so these versions still need ongoing review.
+The constraints pin resolved dependency versions for the selected runtimes, including Linux's `greenlet`, but do not pin package hashes. Recheck the pinned versions as package indexes and advisories change.
 
 A future pip update may conflict with the constraints. That failure is intentional: review the new resolved versions, update the constraints in **both** `ci.yml` and `release-simulation.yml` if installed, then rerun tests and review advisories. Do not delete the constraint flag just to obtain green checks.
 

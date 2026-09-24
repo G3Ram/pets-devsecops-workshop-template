@@ -2,7 +2,7 @@
 
 ## Why it matters
 
-A plausible-looking token may not be blocked. A real credential is never an acceptable way to make a training example reliable.
+The fixture might not trigger push protection. Never use a real credential to make the exercise work.
 
 ## Supplied source
 
@@ -25,7 +25,7 @@ On 2026-09-22 UTC in the authorized fresh-original-template repository `frye/pet
 | Bypass | Not used; the fixture-containing commit never reached the remote branch |
 | Fresh web create/edit route in this kit | Not executed: no authenticated shared-browser page handle was available |
 
-The official course supplies web-UI instructions/screenshots, but that is source evidence, not a fresh learner-copy rehearsal of this kit. Do not mark the latter complete. No secret value or bypass URL is included in the rejection excerpt.
+The official course's web-UI instructions and screenshots are source evidence. They do not show that this kit has been rehearsed in a fresh learner copy; do not mark the kit's route complete based on them. No secret value or bypass URL is included in the rejection excerpt.
 
 ## Before each event
 

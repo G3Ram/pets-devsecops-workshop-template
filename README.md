@@ -2,7 +2,7 @@
 
 **[Start the workshop](content/devsecops/0-setup.md)** | [Lessons and agenda](content/devsecops/README.md) | [Take-home labs](content/devsecops/take-home/README.md)
 
-Use this repository to create your own public shelter application, with the complete workshop and its core checks already included.
+Create your own public shelter application from this template. The complete workshop and its core checks are already included.
 
 1. Select **Use this template > Create a new repository** on [frye/pets-devsecops-workshop-template](https://github.com/frye/pets-devsecops-workshop-template). Choose your account, a public repository, and the default branch only.
 2. In **your new copy**, select **Code > Codespaces > Create codespace on main**. Check Codespaces access, payer, and usage first.
@@ -14,10 +14,10 @@ No companion fetch, second clone, or workflow-install step is needed. The app is
 
 The shelter's functional tests cannot answer every security question. This workshop adds code-scanning remediation, dependency review, and secret protection, then demonstrates merge policy and an approved release simulation.
 
-The event design has a 75-minute core, eight minutes for startup, and seven for closing. Complete take-home labs and an optional job-token/OIDC learning path are bundled. Local Git and GitHub file editing are documented fallbacks; no cloud account or personal token is required.
+The event is designed for 90 minutes: eight minutes for startup, 75 for the core, and seven for closing. The repository includes complete take-home labs and an optional job-token/OIDC learning path. The guides document local Git and GitHub file-editor fallbacks. You need no cloud account or personal token.
 
 > [!IMPORTANT]
-> This is a training prerelease, not a production-ready application. The debug-startup finding is intentional exercise input; existing dependency alerts are not claimed resolved. Do not run or expose the app as a public service. Actual fresh template-copy, Codespaces, and human pacing checks remain distinct from automated tests; see [readiness](content/devsecops/readiness.md).
+> This is a training prerelease, not a production-ready application. The debug-startup finding is intentional exercise input; existing dependency alerts are not claimed resolved. Do not run or expose the app as a public service. Automated tests do not replace a fresh template-copy check, a live Codespaces check, or a human pacing rehearsal; see [readiness](content/devsecops/readiness.md).
 
 ## Checkpoint
 
@@ -25,7 +25,7 @@ Your learner copy has the app, bundled guides, `ci.yml`, and `dependency-review.
 
 ## Maintainers and sources
 
-Changes to this template belong only in **frye/pets-devsecops-workshop-template**. Participants make lesson changes and PRs in their own copies. Do not send workshop PRs to the original Pets project or the earlier companion.
+Make changes to this template only in **frye/pets-devsecops-workshop-template**. Participants make lesson changes and PRs in their own copies. Do not send workshop PRs to the original Pets project or the earlier companion.
 
 The [source manifest](template-source.json) records the pinned application and workshop sources. Their licenses and attribution are retained; these are read-only provenance, not participant setup destinations. [Maintainer instructions](content/devsecops/facilitator.md#maintain-and-publish-this-template) cover validation and packaging.
 

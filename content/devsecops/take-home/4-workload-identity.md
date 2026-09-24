@@ -3,7 +3,7 @@
 | [Previous: dependency maintenance](3-maintain-dependencies.md) | [Next: troubleshooting](troubleshooting.md) |
 |:---|---:|
 
-This optional exercise is outside the 75-minute core. Use the same public learner repository, GitHub.com account, and existing Codespaces editor/terminal. You need no cloud account, PAT, app registration, Copilot subscription, or laptop tool installation. You will test GitHub API authorization in Actions, not Azure or AWS authentication.
+This optional exercise is outside the 75-minute core. Use the same public learner repository, GitHub.com account, and existing Codespaces editor/terminal. It needs no cloud account, PAT, app registration, Copilot subscription, or laptop tools. The jobs test GitHub API authorization in Actions; they do not test Azure or AWS authentication.
 
 ## Why it matters
 
@@ -82,7 +82,7 @@ If Codespaces is unavailable, [local Git](../0-setup.md#fallback-a-local-vs-code
 
 The title is `[workshop-token-permissions] RUN_ID/ATTEMPT allow`. One allowed issue is created and immediately closed during a successful run; it remains visible as training evidence. No source code, default permissions, secrets, or cloud resources are changed.
 
-The platform grant permits issue writes in this repository, not just one issue. The fixed request and run-marker checks keep this exercise's behavior narrower than the token's capability; they are workflow safeguards, not a per-issue permission grant.
+The platform grant permits issue writes anywhere in this repository. The workflow safeguards limit this exercise to a fixed request and a run-marked issue; they do not make the token itself issue-specific.
 
 Save the run URL and revision, both jobs' permission displays, the exact denial message, issue URL, bot creator, and confirmed closed state. The run summary is the receipt; no token or bearer header is printed. Do not add a debugging step that dumps environment variables or the full `github` context.
 

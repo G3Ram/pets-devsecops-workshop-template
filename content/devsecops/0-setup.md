@@ -5,7 +5,7 @@
 
 ## Why it matters
 
-Your template copy already contains the application, lessons, and two core workflows. Prework now checks access and repository security, rather than assembling files from another repository. Complete it before the event; the opening eight minutes only verify readiness.
+Your template copy already contains the application, lessons, and two core workflows. Prework checks access and repository security; you do not need to assemble files from another repository. Complete it before the event, then use the opening eight minutes to verify readiness.
 
 The flow is **use the workshop template -> open your copy in Codespaces -> verify checks and security settings -> open the starter PR**. There is no companion fetch, archive extraction, second clone, or workflow-install command.
 
@@ -15,7 +15,7 @@ Unless labeled otherwise, **editor** means browser-based VS Code in Codespaces a
 
 1. Sign in at [GitHub.com](https://github.com) with an account that can own/administer a public repository and use Actions.
 2. Follow your employer's public-training policy. Enterprise Managed Users cannot create public repositories; use a personal account only if permitted. If needed, use [signup](https://github.com/signup), verify an email you control, and configure two-factor authentication. Do not use an email already verified for a managed user.
-3. Check Codespaces availability, the payer displayed during creation, and remaining compute/storage usage or approved sponsorship. Public repositories do not provide unlimited free Codespaces; its usage is separate from Actions.
+3. Check Codespaces availability, the payer displayed during creation, and remaining compute/storage usage or approved sponsorship. Public repositories do not provide unlimited free Codespaces. Codespaces usage is separate from Actions.
 4. Do not add payment details, increase budgets, widen credentials, or evade policy to continue. Use the [local Git](#fallback-a-local-vs-code-and-git) or [file-editor fallback](#fallback-b-github-file-editor) if needed.
 
 You need no laptop runtime, Azure account, Copilot subscription, or pasted PAT. If no route is permitted, arrange approved observation and leave individual outcomes incomplete.
@@ -57,7 +57,7 @@ GitHub copies the template's current default-branch files and starts independent
 
 Do not clone again, add a required devcontainer, rebuild the image, install dependencies, or start the app. Tests/builds/scans run in Actions. Keep forwarded ports private. A prompt to fork or an unexpected origin means you should stop and open the correct learner copy.
 
-All materials are inside the checkout at `content/devsecops`. Later copy commands use that path relative to the learner root. Saving a file is not committing or pushing it.
+All guides and starters are in `content/devsecops` in your checkout. Later copy commands use paths relative to the learner root. Saving a file does not commit or push it.
 
 ## 0.4 Verify the preinstalled checks
 
@@ -70,7 +70,7 @@ The two active workflows are already on `main` before any exercise branch. `depe
 
 ## 0.5 Verify security in your learner repository
 
-Templates supply files; do not assume security settings, secrets, environments, rulesets, or reviewer lists transfer. Organization defaults may enable some settings already.
+A template copies files, but settings may differ in your repository. Verify security settings, secrets, environments, rulesets, and reviewer lists there. Organization defaults may already enable some settings.
 
 1. Open **Settings > Advanced Security** and confirm **Dependency graph** is enabled.
 2. Under **CodeQL analysis**, choose **Set up > Default**, confirm Python is detected, review other languages, and enable it. Do not combine default and advanced setup.

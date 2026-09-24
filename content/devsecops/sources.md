@@ -26,7 +26,7 @@ These release tags resolved to the following commit objects through the owners' 
 | [actions/dependency-review-action v5.0.0](https://github.com/actions/dependency-review-action/releases/tag/v5.0.0) | `a1d282b36b6f3519aa1f3fc636f609c47dddb294` |
 | [actions/upload-artifact v7.0.1](https://github.com/actions/upload-artifact/releases/tag/v7.0.1) | `043fb46d1a93c77aae656e7c1c64a875d1fc6a0a` |
 
-Maintainers can resolve a candidate tag with `gh api repos/OWNER/ACTION/git/ref/tags/TAG`. If it references an annotated tag object, resolve that object's commit too. Read the release notes and action inputs before updating. A pin provides immutability, not a guarantee that the action is safe.
+Maintainers can resolve a candidate tag with `gh api repos/OWNER/ACTION/git/ref/tags/TAG`. If it references an annotated tag object, resolve that object's commit too. Read the release notes and action inputs before updating. A commit pin makes the action reference immutable; it does not prove the action is safe.
 
 ## Exercise sources
 
@@ -71,4 +71,4 @@ Pets source remains under its [original license](SOURCE-LICENSE). The reused ina
 
 ## Checkpoint
 
-Before changing a pin or fixture, update evidence, rerun local and authorized live checks, and publish a new version only in the template repository. Never retag an existing release or claim a source lookup is an executed control.
+Before changing a pin or fixture, update the evidence and rerun local and authorized live checks. Publish a new version only in the template repository. Never retag an existing release or present a source lookup as an executed control.

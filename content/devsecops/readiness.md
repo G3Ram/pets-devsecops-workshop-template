@@ -2,7 +2,7 @@
 
 ## Why it matters
 
-A bundled template removes file-installation steps, but it does not prove that a new learner's account, security settings, or codespace works. Record those results separately.
+Bundled files remove installation steps. Verify each learner's account access, repository security settings, and Codespaces setup separately in a fresh copy.
 
 Template 0.1.0 is a prerelease in **frye/pets-devsecops-workshop-template**. Participants copy only this repository. The original app and previous companion are read-only provenance, recorded in [the source manifest](../../template-source.json).
 

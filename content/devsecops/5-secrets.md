@@ -3,14 +3,14 @@
 | [Previous: dependencies](4-dependencies.md) | [Next: merge policy](6-merge-policy.md) |
 |:---|---:|
 
-Budget: 12 minutes. A volunteer pastes a credential while troubleshooting. Each participant's intended outcome is a real protection block and a clean retry.
+Budget: 12 minutes. A volunteer pastes a credential while troubleshooting. Each participant should observe a push-protection block, then complete a clean retry.
 
 ## Why it matters
 
 A later deletion commit leaves the earlier value in Git history. Push protection can stop supported values before they arrive; a real exposure still requires revocation or rotation and investigation.
 
 > [!WARNING]
-> Use only [the supplied delimiter-masked fixture](fixtures/secret-training.txt), which the official GitHub Skills source identifies as inactive. The earlier local-terminal block/repair was observed; an actual Codespaces attempt and the file-editor fallback still need their own rehearsal. Read [the provenance and route status](fixtures/secret-validation.md). Never use an active credential, including the developer token configured inside Codespaces, or invent a value to force detection.
+> Use only [the supplied delimiter-masked fixture](fixtures/secret-training.txt), which the official GitHub Skills source identifies as inactive. Authors observed a block and repair with local Git. The Codespaces route and file-editor fallback still need separate rehearsal. Read [the provenance and route status](fixtures/secret-validation.md). Never use an active credential, including the developer token configured inside Codespaces, or invent a value to force detection.
 
 ## Before the attempt
 
@@ -71,11 +71,11 @@ For the [GitHub file-editor fallback](0-setup.md#fallback-b-github-file-editor):
 
 If the attempt succeeds instead of being blocked, stop. Record **incomplete: no protection block** and keep the nonfunctional branch unmerged. Ask the organizer to check the supported pattern, repository settings, and whether the value was already detected there. Do not try a real credential. If a real secret was used accidentally, revoke or rotate it immediately and follow your incident process.
 
-The [fixture record](fixtures/secret-validation.md) includes the author's earlier local-terminal rejection and clean retry. It does not verify Codespaces, the file editor, or your result. Use the [evidence examples](fixtures/evidence-examples.md) to interpret the fields; they contain no successful scans. Watching a recording leaves your individual outcome incomplete.
+The [fixture record](fixtures/secret-validation.md) documents an earlier local-terminal rejection and clean retry. It does not verify Codespaces, the file editor, or your result. Use the [evidence examples](fixtures/evidence-examples.md) to interpret the fields; they contain no successful scans. Watching a recording leaves your individual outcome incomplete.
 
 ## Checkpoint
 
-Record Codespaces, local Git, or file-editor fallback explicitly, with the actual block and clean retry. Explain why deleting a real secret is not sufficient response: revoke or rotate it, assess use, coordinate history cleanup, and prevent recurrence. Codespaces/local Git also demonstrate unpublished-commit repair; the file editor does not.
+Record Codespaces, local Git, or file-editor fallback explicitly, with the actual block and clean retry. Explain why deleting a real secret is not sufficient response: revoke or rotate it, assess use, coordinate history cleanup, and prevent recurrence. The Codespaces and local Git routes also demonstrate how to repair an unpublished commit. The file-editor route does not.
 
 ## Resources
 

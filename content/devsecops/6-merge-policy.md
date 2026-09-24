@@ -3,19 +3,19 @@
 | [Previous: secrets](5-secrets.md) | [Next: delivery and response](7-delivery-and-response.md) |
 |:---|---:|
 
-Budget: 10 minutes. Facilitator demonstration in a separate repository. Keep your working PR open; you do not configure rulesets during this segment.
+Budget: 10 minutes. The facilitator demonstrates the policy in a separate repository. Keep your working PR open; you will not configure a ruleset during this segment.
 
-Keep your existing codespace available for outstanding edits, and use GitHub.com to inspect results. Later, [take-home Lab 1](take-home/1-enforce-merge-policy.md) resumes that same codespace for file changes while ruleset configuration stays on GitHub.
+Keep your existing codespace available for unfinished edits. Inspect results on GitHub.com. In [take-home Lab 1](take-home/1-enforce-merge-policy.md), use the same codespace for file changes and configure the ruleset on GitHub.com.
 
 ## Why it matters
 
-A failed check provides feedback. A ruleset can require that check to pass before merging. A successful CodeQL analysis means the scanner ran; its findings still need a policy.
+A failed check provides feedback. A ruleset can require that check to pass before merging. A successful CodeQL analysis confirms the scanner ran. The ruleset controls how its findings affect a merge.
 
 ## Explore together
 
 1. Inspect the presenter's ruleset targeting `main`: active enforcement, no bypass actors, a required PR, zero required peer approvals, and required checks `api-tests`, `client-build`, and `dependency-review`.
 2. Inspect **Require code scanning results**, select **CodeQL**, and require **High or higher** security findings to be resolved. The presenter uses the exact settings in [take-home Lab 1](take-home/1-enforce-merge-policy.md).
-3. Open the presenter's separate failing dependency-training PR. Confirm the merge control is blocked by the required failed check. A missing check is also blocking, but is not the intended fail/fix proof.
+3. Open the presenter's separate failing dependency-training PR. Confirm the merge control is blocked by the required failed check. A missing check also blocks a merge, but does not demonstrate the intended failure-and-repair cycle.
 4. Inspect the repaired revision and its passing check. Confirm eligibility, then close that PR without merging the fixture.
 5. Merge only the presenter's safe application PR once its own results pass. This starts the prepared release simulation for lesson 7.
 
