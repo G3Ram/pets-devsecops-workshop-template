@@ -5,7 +5,7 @@
 
 Budget: 24 minutes. Configure the ruleset in your own learner repository. The facilitator and helpers guide and troubleshoot; they do not configure or bypass controls for you.
 
-Use your existing Codespaces editor and terminal for Git and file changes. Configure settings, inspect PRs, and record Actions/CodeQL results on GitHub.com. The local Git and file-editor fallbacks use the same learner repository and preserve the same policy requirements.
+Use your existing Codespaces editor and terminal for Git and file changes. Use GitHub.com to configure settings, inspect PRs, and record Actions and CodeQL results. The local Git and file-editor fallbacks use the same learner repository and policy requirements.
 
 ## Why it matters
 
@@ -16,8 +16,8 @@ A failed check provides feedback. An active ruleset can require that check to pa
 1. Open your learner repository on GitHub. Confirm the safe application PR and dependency-training PR are separate, both target your own `main`, and neither contains the other's files:
    - The safe PR contains the startup fix and regression test, not the dependency or secret fixture.
    - The dependency PR is `exercise/dependency-policy` and contains only `workshop-lab/dependency/requirements.txt` with the still-failing `PyJWT==2.3.0` fixture.
-2. If the dependency PR or branch is closed/missing, use [Resume](take-home/0-resume.md) to recreate an isolated failing fixture PR from your current `main`. Never merge the lab manifest.
-3. Check the latest safe-PR revision for the exact `api-tests`, `client-build`, and `dependency-review` jobs and its CodeQL analysis. If anything is queued or pending, keep its status pending and use the ruleset setup as the callback activity. Do not assume an older green revision covers the latest commit.
+2. If the dependency PR is closed or the PR or branch is missing, use [Resume](take-home/0-resume.md) to recreate an isolated failing fixture PR from your current `main`. Never merge the lab manifest.
+3. Check the latest safe-PR revision for the exact `api-tests`, `client-build`, and `dependency-review` jobs and its CodeQL analysis. If anything is queued or pending, keep its status pending. Configure the ruleset while you wait, then return to the results. Do not assume an older green revision covers the latest commit.
 
 ## 2. Create and verify the ruleset
 
@@ -38,9 +38,9 @@ A failed check provides feedback. An active ruleset can require that check to pa
 7. Enable **Require code scanning results**, select **CodeQL**, and require **High or higher** findings to be resolved. If the UI also offers a general alert severity, select **Errors**. Do not require code-owner review.
 8. Save and reopen the ruleset. Verify it is active, targets only `main`, has no bypass actors, requires zero approvals, contains the exact checks above, and includes the CodeQL threshold.
 
-If a status check is missing from the selector, confirm the starter workflow exists on both branches and wait for or rerun its real PR workflow. Do not guess a check name or remove a requirement to merge. If the CodeQL merge-protection control is unavailable under your account or organization policy, stop and record that requirement as unavailable/incomplete; do not claim it is enforced or weaken another rule.
+If a status check is missing from the selector, confirm the starter workflow exists on both branches and wait for or rerun its real PR workflow. Do not guess a check name or remove a requirement to merge. If your account or organization policy makes CodeQL merge protection unavailable, stop and record that requirement as unavailable or incomplete. Do not claim it is enforced or weaken another rule.
 
-Code-scanning merge protection primarily evaluates findings introduced in a PR. Existing findings outside the PR diff and some Dependabot/default-setup cases have documented limitations. The intended `py/flask-debug` alert can remain open until the safe fix merges.
+Code-scanning merge protection primarily evaluates findings introduced in a PR. Documented limitations apply to existing findings outside the PR diff and some cases involving Dependabot or default setup. The intended `py/flask-debug` alert can remain open until the safe fix merges.
 
 ## 3. Prove the failing dependency check blocks a merge
 
@@ -91,7 +91,7 @@ If a result is pending or a policy capability is unavailable, preserve the PR an
 
 ## Checkpoint
 
-Record the actual active ruleset state, the required-failure block, the repaired dependency PR's eligible state and unmerged closure, the safe application merge SHA, successful `main` checks, and the original alert's status. Use the [evidence checklist](evidence.md); expected examples and other learners' runs are references, not evidence for your repository.
+Record the active ruleset settings and the failed required check that blocked merging. For the repaired dependency PR, record its eligible state and closure without merging. Also record the safe application merge SHA, successful `main` checks, and the original alert's status. Use the [evidence checklist](evidence.md). Expected examples and other learners' runs are references, not evidence for your repository.
 
 When Codespaces is unavailable, use the documented [local Git](0-setup.md#fallback-a-local-vs-code-and-git) or [file-editor fallback](0-setup.md#fallback-b-github-file-editor). GitHub settings, merge enforcement, and actual check results still have to be verified in your own repository.
 

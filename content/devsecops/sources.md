@@ -2,7 +2,7 @@
 
 ## Why it matters
 
-Action tags, package advisories, and product interfaces change. A versioned kit needs a record of what was checked and a way to update it without guessing.
+Action tags, package advisories, and product interfaces change. Record what was checked for each kit version so maintainers can review future updates.
 
 ## Source and runtime baseline
 
@@ -12,7 +12,7 @@ The learner entry point is [frye/pets-devsecops-workshop-template](https://githu
 
 Standard `ubuntu-24.04` runners use Python 3.14 and Node 24. [Astro 6's upgrade guide](https://docs.astro.build/en/guides/upgrade-to/v6/) requires Node >=22.12. Other Pets workshop tracks are not included in this template; follow the bundled DevSecOps guide.
 
-The Python constraints were resolved with pip for the existing three direct requirements. Linux's `greenlet` version was verified against PyPI. Both functional workflows use the same constraint block. It is an updateable version snapshot, not a full hash lock. [Take-home maintenance](take-home/3-maintain-dependencies.md) explains direct pins and snapshot refresh.
+The Python constraints were resolved with pip for the existing three direct requirements. Linux's `greenlet` version was verified against PyPI. Both functional workflows use the same constraint block. This snapshot pins versions and can be updated, but does not lock package hashes. [Take-home maintenance](take-home/3-maintain-dependencies.md) explains direct pins and how to refresh the snapshot.
 
 ## Verified action pins
 
@@ -44,7 +44,7 @@ Maintainers can resolve a candidate tag with `gh api repos/OWNER/ACTION/git/ref/
 
 For the earlier companion v0.1.1, these identity sources were read on 2026-09-22 UTC. The OIDC reference explicitly distinguishes ID-bearing immutable subjects for new GitHub.com repositories after July 15, 2026. Provider trust must match the actual subject and audience; older name-only examples are not universal templates. The optional issue workflow requests no ID token and contains no provider login or new external action pin.
 
-The candidate PyJWT 2.10.1 was rejected during authoring because the advisory API reported a later high-severity issue. Recheck the shipped repair before each event. An advisory lookup does not prove GitHub discovered the exercise manifest; actual workflow evidence is recorded separately.
+During authoring, the advisory API reported a later high-severity issue for PyJWT 2.10.1, so that candidate was rejected. Recheck the shipped repair before each event. An advisory lookup does not prove GitHub discovered the exercise manifest. Workflow evidence is recorded separately.
 
 Do not infer a safe secret fixture from search-result prose. This kit uses only the attributed, delimiter-masked GitHub Skills value and never authenticates with it. The course's bypass activity and initial disable-protection activity are deliberately excluded. See [fixture provenance and route status](fixtures/secret-validation.md).
 
@@ -63,7 +63,7 @@ The v0.1.2 route was checked against these official pages on 2026-09-22. Documen
 | Usage | [Codespaces billing](https://docs.github.com/en/billing/concepts/product-billing/github-codespaces): included personal quotas or approved sponsorship, separate compute/storage, and no unlimited free usage just because a repo is public |
 | Stop/resume | [Stop and start](https://docs.github.com/en/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace): closing a browser tab is not stopping; stopped storage still counts |
 
-The complete materials now reside in each learner's copy. No companion fetch, local tag, or external Git history is needed. Template copies have independent history; validation uses bundled files and checksums rather than expecting the source commits to exist in their `.git` directories.
+Each learner's copy contains the complete materials. No companion fetch, local tag, or external Git history is needed. Template copies have independent history. Validation uses bundled files and checksums because the source commits do not need to exist in their `.git` directories.
 
 ## Attribution
 

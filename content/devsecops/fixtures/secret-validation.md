@@ -8,7 +8,7 @@ The fixture might not trigger push protection. Never use a real credential to ma
 
 [secret-training.txt](secret-training.txt) contains the delimiter-masked training value from GitHub's official [Introduction to secret scanning, step 3](https://github.com/skills/introduction-to-secret-scanning/blob/77045e069f9deda2beba27990d65899c4ee4b221/.github/steps/3-enable-push-protection.md), pinned at `77045e069f9deda2beba27990d65899c4ee4b221`.
 
-That source explicitly calls the value **inactive** and shows removing `<REMOVE_ME>` before a blocked web commit. Its [license](SKILLS-LICENSE) permits reuse. We rely on that primary-source inactive designation; the value was never used to authenticate or tested against a credential-validation service.
+That source explicitly calls the value **inactive** and shows removing `<REMOVE_ME>` before a blocked web commit. Its [license](SKILLS-LICENSE) permits reuse. We rely on the source's statement that the value is inactive. It was never used to authenticate or tested against a credential-validation service.
 
 Keep `<REMOVE_ME>` in the distributed kit, screenshots, and any committed handout. Remove it only in the isolated exercise edit immediately before the attempted protected commit/push. Do not follow the source course's later bypass activity or its earlier instruction to disable protection. This workshop always keeps protection enabled and repairs the rejected change.
 
@@ -25,7 +25,7 @@ On 2026-09-22 UTC in the authorized fresh-original-template repository `frye/pet
 | Bypass | Not used; the fixture-containing commit never reached the remote branch |
 | Fresh web create/edit route in this kit | Not executed: no authenticated shared-browser page handle was available |
 
-The official course's web-UI instructions and screenshots are source evidence. They do not show that this kit has been rehearsed in a fresh learner copy; do not mark the kit's route complete based on them. No secret value or bypass URL is included in the rejection excerpt.
+The official course's web-UI instructions and screenshots document the source exercise. They do not show that this kit has been rehearsed in a fresh learner copy. Do not mark the kit's route complete based on them. The rejection excerpt includes no secret value or bypass URL.
 
 ## Before each event
 
@@ -35,7 +35,7 @@ The official course's web-UI instructions and screenshots are source evidence. T
 4. Independently perform the GitHub.com create/edit attempt. Confirm a blocked commit, correct the uncommitted edit, and record the successful retry. Do not substitute REST behavior for the UI route.
 5. Record repository, date, kit version, source revision, route, redacted rejection, clean retry, and absence of bypass. Recheck on the event network and supported account type.
 
-If either live route fails, report the limitation before the event and revisit the delivery promise. A labeled recording can support discussion but cannot satisfy every participant's required individual live block.
+If either live route fails, report the limitation before the event and reconsider what participants can complete. A labeled recording can support discussion but cannot satisfy every participant's required individual live block.
 
 ## Checkpoint and resources
 

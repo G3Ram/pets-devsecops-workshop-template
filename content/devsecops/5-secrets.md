@@ -7,7 +7,7 @@ Budget: 12 minutes. A volunteer pastes a credential while troubleshooting. Each 
 
 ## Why it matters
 
-A later deletion commit leaves the earlier value in Git history. Push protection can stop supported values before they arrive; a real exposure still requires revocation or rotation and investigation.
+A later deletion commit leaves the earlier value in Git history. Push protection can block supported values before they reach the repository. If a real credential is exposed, revoke or rotate it and investigate.
 
 > [!WARNING]
 > Use only [the supplied delimiter-masked fixture](fixtures/secret-training.txt), which the official GitHub Skills source identifies as inactive. Authors observed a block and repair with local Git. The Codespaces route and file-editor fallback still need separate rehearsal. Read [the provenance and route status](fixtures/secret-validation.md). Never use an active credential, including the developer token configured inside Codespaces, or invent a value to force detection.
@@ -36,7 +36,7 @@ A later deletion commit leaves the earlier value in Git history. Push protection
    git push -u origin exercise/secret-protection
    ```
 
-3. Confirm GitHub rejects the push for secret protection, not authentication or a network error. Keep the commit/path evidence with the fixture value and bypass URL redacted. Do not follow a bypass link.
+3. Confirm GitHub rejects the push for secret protection, not authentication or a network error. Record the commit and path, with the fixture value and bypass URL redacted. Do not follow a bypass link.
 4. For this single, newest, unpublished training commit, replace the file in the Codespaces editor with `TRAINING_VALUE_REMOVED` and save. Rewrite that unpublished commit, then push normally:
 
    ```bash
@@ -71,7 +71,7 @@ For the [GitHub file-editor fallback](0-setup.md#fallback-b-github-file-editor):
 
 If the attempt succeeds instead of being blocked, stop. Record **incomplete: no protection block** and keep the nonfunctional branch unmerged. Ask the organizer to check the supported pattern, repository settings, and whether the value was already detected there. Do not try a real credential. If a real secret was used accidentally, revoke or rotate it immediately and follow your incident process.
 
-The [fixture record](fixtures/secret-validation.md) documents an earlier local-terminal rejection and clean retry. It does not verify Codespaces, the file editor, or your result. Use the [evidence examples](fixtures/evidence-examples.md) to interpret the fields; they contain no successful scans. Watching a recording leaves your individual outcome incomplete.
+The [fixture record](fixtures/secret-validation.md) documents an earlier local-terminal rejection and clean retry. It does not verify Codespaces, the file editor, or your result. The [evidence examples](fixtures/evidence-examples.md) explain which fields to record; they contain no successful scans. Watching a recording leaves your individual outcome incomplete.
 
 ## Checkpoint
 

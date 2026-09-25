@@ -3,21 +3,21 @@
 | [Previous: merge policy](1-enforce-merge-policy.md) | [Next: dependency maintenance](3-maintain-dependencies.md) |
 |:---|---:|
 
-Use [core Lab 7](../7-delivery-and-response.md) as the only canonical release procedure. This page helps you resume incomplete work or run its explicitly optional non-`main` check; it does not define a second workflow-install or approval path.
+Follow [core Lab 7](../7-delivery-and-response.md) for the release procedure, including workflow installation and approval. Use this page to resume incomplete work or run the optional non-`main` check.
 
 ## Why it matters
 
-A release receipt is meaningful only when it identifies the exact current `main` revision, its own run attempt, a human-observed approval wait, and the artifact that was actually uploaded.
+Use a release receipt that identifies the exact current `main` revision, its own run attempt, the approval wait you observed, and the artifact actually uploaded.
 
 ## Resume safely
 
 1. Read [Resume](0-resume.md), then verify the environment and workflow state in your own repository before using an old run link.
 2. If `workshop-demo` is configured but the workflow is not on `main`, verify the exact environment settings before creating or resuming `exercise/release-simulation`. Install only the bundled starter through a reviewed PR.
 3. If the workflow PR is still open, inspect its diff and latest checks. Do not write directly to `main`; merge only through the active Lab 6 ruleset.
-4. If the workflow is already merged, record its actual merge SHA and inspect a run for that exact current `main` SHA. Do not approve a run for an older commit.
+4. If the workflow is already merged, record its merge SHA and inspect a run for that exact current `main` SHA. Do not approve a run for an older commit.
 5. If a run is stale, cancel it and dispatch the unchanged workflow from current `main`. A manual run has its own prerequisites, approval wait, run attempt, and receipt.
 6. If any prerequisite is failed, pending, skipped, or cancelled, do not approve. If no environment approval wait appears, stop and diagnose the policy before continuing.
-7. If your own account or organization cannot configure the required reviewer, exact single `main` branch rule, or disabled administrator bypass, stop before workflow installation and record the outcome incomplete. Do not ask another person to configure it or use a bypass.
+7. If your account or organization prevents you from configuring the required reviewer, exact single `main` branch rule, or disabled administrator bypass, stop before installing the workflow. Record the outcome as incomplete. Do not ask another person to configure it or use a bypass.
 8. If an artifact expired or upload failed, record that fact. A new run creates a different attempt and receipt; do not reconstruct or relabel the old artifact.
 
 ## Extended validation
@@ -28,7 +28,7 @@ For Codespaces or local Git, follow Lab 7 to download the artifact outside the a
 
 ## Checkpoint
 
-Record the exact SHA, run URL and attempt, three successful same-SHA prerequisites, observed approval wait, approval, artifact ID, receipt checksum, separate archive digest, and independent checksum status. Another repository's receipt, an expected-result example, and a recording are not your evidence.
+Record the exact SHA, run URL and attempt, and three successful prerequisites at that SHA. Include the approval wait you observed and the approval itself. Keep the artifact ID, receipt checksum, separate archive digest, and independent checksum status with that record. Another repository's receipt, an expected-result example, and a recording are not your evidence.
 
 ## Resources
 

@@ -54,13 +54,13 @@ CodeQL's `py/flask-debug` rule identifies a configuration that can expose the We
 
 If Codespaces is unavailable, the [local Git fallback](0-setup.md#fallback-a-local-vs-code-and-git) uses the same commands. The [file-editor fallback](0-setup.md#fallback-b-github-file-editor) applies the same two edits on `exercise/shelter-change`; evaluate the last commit containing both changes.
 
-The test intercepts `Flask.run`; it never opens a socket. It uses an in-memory database and sets `FLASK_DEBUG=1` deliberately, proving the explicit safe default wins. Do not edit `app/scripts/common.sh`: its debug setting belongs to the existing local-development route. Deliberate local debugging remains available through the Flask CLI. Neither route is a production deployment recipe.
+The test intercepts `Flask.run`, so it never opens a socket. It uses an in-memory database and deliberately sets `FLASK_DEBUG=1` to check that the explicit safe default takes precedence. Do not edit `app/scripts/common.sh`: its debug setting is for local development. You can also use the Flask CLI for deliberate local debugging. Neither route is a production deployment recipe.
 
 ## Checkpoint
 
 Record the final fix commit and its successful functional checks. Inspect the PR's CodeQL results for that revision and confirm the targeted finding no longer appears. The default-branch alert may remain open while your PR is unmerged; take-home Lab 1 checks its closure after merge.
 
-The supplied regression test fails against `debug=True` and passes against `debug=False`; you still need the GitHub results above. See [solutions](solutions/README.md) for the explanation. Leave your working PR open.
+The supplied regression test fails against `debug=True` and passes against `debug=False`. You still need the GitHub results above. See [solutions](solutions/README.md) for the explanation, and leave your working PR open.
 
 ## Resources
 

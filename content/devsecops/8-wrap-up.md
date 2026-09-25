@@ -15,7 +15,7 @@ Record which controls you tested yourself, what exact revision they covered, and
    - Lab 6: active ruleset settings, dependency failure blocked by the exact required check, repaired eligibility, dependency PR closed without merging, safe merge SHA, successful `main` checks, and `py/flask-debug` alert state.
    - Lab 7: environment policy, workflow PR merge SHA, approved release SHA, run URL/attempt, successful same-SHA jobs, artifact ID, receipt checksum, archive digest, checksum verification/fallback status, and incident-response decision.
 2. Keep each outcome `Pending`, `Incomplete`, `Unverified`, or `Not attempted` when the required result is absent. Record local Git, Codespaces, or file-editor route separately. The file-editor fallback cannot verify a checksum locally.
-3. Compare your opening delivery sketch with the controls you configured. Identify where a change is prevented, detected, reviewed, merged, and approved.
+3. Compare your opening delivery sketch with the controls you configured. Identify where the process prevents, detects, reviews, merges, and approves a change.
 4. Preserve safe work and run/artifact links before receipts expire. Leave the dependency and secret training fixtures unmerged. If a required result is still pending, save the resume point rather than forcing completion.
 5. Open [Resume](take-home/0-resume.md) to choose the right state for any later work, then use the remaining time for questions.
 
@@ -27,7 +27,7 @@ Use **Codespaces: Stop Codespace** or **Stop codespace** for this space at [gith
 
 ## Checkpoint
 
-Keep your own evidence record and resume point. Mark unverified GitHub settings, pending scans, unavailable reviewers, expired artifacts, and unperformed checksum checks honestly. Examples, expected-result tables, and recordings remain references, not learner evidence.
+Keep your own evidence record and resume point. Note any GitHub settings you have not verified, pending scans, unavailable reviewers, expired artifacts, or checksum checks you have not run. Examples, expected-result tables, and recordings remain references, not learner evidence.
 
 ## Resources
 

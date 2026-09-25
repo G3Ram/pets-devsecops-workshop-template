@@ -3,15 +3,15 @@
 | [Previous: dependency maintenance](3-maintain-dependencies.md) | [Next: troubleshooting](troubleshooting.md) |
 |:---|---:|
 
-This optional exercise is outside the 120-minute core workshop. Use the same public learner repository, GitHub.com account, and existing Codespaces editor/terminal. It needs no cloud account, PAT, app registration, Copilot subscription, or laptop tools. The jobs test GitHub API authorization in Actions; they do not test Azure or AWS authentication.
+This optional exercise is outside the 120-minute core workshop. Use the same public learner repository, GitHub.com account, and existing Codespaces editor and terminal. You need no cloud account, PAT, app registration, Copilot subscription, or laptop tools. The jobs test GitHub API authorization in Actions; they do not test Azure or AWS authentication.
 
 ## Why it matters
 
-The shelter wants automation to create an issue without being able to change application code. You will observe a denied request and a separately authorized request, then confirm that the training issue was closed.
+The shelter needs automation that can create an issue but cannot change application code. You'll observe a denied request, then an authorized request from a separate job. Finally, confirm that the training issue was closed.
 
 GitHub creates a distinct `GITHUB_TOKEN` for each job. It is an installation access token for the GitHub App installed when Actions is enabled, scoped to the repository containing the workflow. It is not the triggering person's PAT. It expires when the job finishes or reaches its effective maximum lifetime; these jobs also have five-minute execution timeouts. The workflow can use the token through `github.token` without you creating or copying it.
 
-Codespaces configures a separate developer credential that may also be named `GITHUB_TOKEN`. Do not print either value or run this workflow's proof code in the Codespaces terminal with developer credentials. You edit and push the YAML there; Actions must execute the two jobs.
+Codespaces configures a separate developer credential that may also be named `GITHUB_TOKEN`. Do not print either value or run this workflow's proof code in the Codespaces terminal with developer credentials. Edit and push the YAML in Codespaces. The two jobs must run in Actions.
 
 ## 1. Check readiness
 
@@ -20,7 +20,7 @@ Codespaces configures a separate developer credential that may also be named `GI
 3. Keep your current repository-default workflow permissions unchanged. This exercise specifies permission grants per job.
 4. Open your copy's `content/devsecops/starter/token-permissions.yml` in the Codespaces editor. The [bundled starter](../starter/token-permissions.yml) is the only file needed. Read it before installing it; file-editor fallback users can open the same path in their learner repository.
 
-You can do this lab independently of the release/environment and dependency-maintenance labs. Only the two core workflows are preinstalled. This optional file remains inactive until you add it through a reviewed PR.
+You can do this lab independently of the release and environment work or the dependency-maintenance lab. Only the two core workflows are preinstalled. This optional file remains inactive until you add it through a reviewed PR.
 
 ## 2. Review and add the workflow
 
@@ -84,7 +84,7 @@ The title is `[workshop-token-permissions] RUN_ID/ATTEMPT allow`. One allowed is
 
 The platform grant permits issue writes anywhere in this repository. The workflow safeguards limit this exercise to a fixed request and a run-marked issue; they do not make the token itself issue-specific.
 
-Save the run URL and revision, both jobs' permission displays, the exact denial message, issue URL, bot creator, and confirmed closed state. The run summary is the receipt; no token or bearer header is printed. Do not add a debugging step that dumps environment variables or the full `github` context.
+Save the run URL and revision, both jobs' permission displays, and the exact denial message. Also record the issue URL, bot creator, and confirmed closed state. The run summary is the receipt; it prints no token or bearer header. Do not add a debugging step that dumps environment variables or the full `github` context.
 
 ## 4. Handle failures and cleanup
 
@@ -98,7 +98,7 @@ Save the run URL and revision, both jobs' permission displays, the exact denial 
 | Cleanup fails or detects a changed issue | Open the exact **Created training issue** or **Cleanup target** URL in the log/summary. Verify the title, run marker, and bot author; use **Close issue** on only that issue. Do not bulk-close or delete issues. |
 | Run is cancelled, times out, or loses its runner | Cleanup is best-effort under interruption. Inspect the exact recorded issue URL and close that issue manually if needed. Cleanup success cannot turn a failed or cancelled proof into a pass. |
 
-If creation was interrupted before its number was returned, the summary includes an exact title and a **Recovery search** link. Search both open and closed issues, match the run URL/body marker and bot author, then record and close only the matching training issue. Do not rerun blindly: a server may have created an issue even if the client did not receive the response.
+If creation was interrupted before the issue number was returned, the summary includes an exact title and a **Recovery search** link. Search both open and closed issues, and match the run URL, body marker, and bot author. Record and close only the matching training issue. Check before rerunning: the server may have created an issue even if the client did not receive the response.
 
 Each rerun has a new attempt number and may create one new training issue. Save your evidence first. If you no longer want this exercise available, disable **Token permissions** in its Actions menu or remove only `.github/workflows/token-permissions.yml` through a reviewed PR.
 
@@ -123,7 +123,7 @@ Federation can avoid storing a long-lived cloud credential in GitHub. It still r
 
 ## Checkpoint
 
-You can identify the installation-token identity, show an actual expected denied operation, explain the separate narrowly authorized job, and link to its closed bot-created issue. You can also distinguish GitHub API authorization, OIDC identity assertions, and provider-issued access tokens. Cloud setup is further reading, not a completed lab outcome.
+You can identify the installation-token identity and show the expected denial you observed. You can explain the separate job's limited permissions and link to its closed bot-created issue. You can also distinguish GitHub API authorization, OIDC identity assertions, and provider-issued access tokens. Cloud setup is further reading, not a completed lab outcome.
 
 ## Resources
 

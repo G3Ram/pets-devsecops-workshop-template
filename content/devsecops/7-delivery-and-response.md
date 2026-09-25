@@ -5,11 +5,11 @@
 
 Budget: 24 minutes. Configure the release environment, install the workflow through a reviewed PR, approve a passing simulation, and record your own evidence. It deploys no application and needs no cloud account.
 
-Work only in your own learner repository. Use Codespaces for editing and Git, GitHub.com for environment/PR/approval settings, and Actions for the simulation. If a platform result is delayed, complete the incident-card activity while it runs; do not approve a failed or stale revision.
+Work only in your own learner repository. Edit files and use Git in Codespaces. Configure the environment, manage PRs, and give approvals on GitHub.com; Actions runs the simulation. If a platform result is delayed, complete the incident-card activity while it runs. Do not approve a failed or stale revision.
 
 ## Why it matters
 
-Release approval is a decision about a particular revision and its evidence. A traceable receipt helps the shelter identify what was approved when a later advisory appears.
+When you approve a release, you approve a particular revision based on its evidence. The receipt lets the shelter identify that revision if a later advisory appears.
 
 ## 1. Configure the environment before installing the workflow
 
@@ -21,7 +21,7 @@ Release approval is a decision about a particular revision and its evidence. A t
 6. Under **Deployment branches and tags**, select **Selected branches and tags**. Add exactly one **Branch** rule named `main`. Do not add a tag rule, wildcard, or **Protected branches only**.
 7. Reopen the environment and verify the reviewer, disabled administrator bypass, selected-branch mode, and sole `main` rule. Add no environment secrets, cloud credentials, or variables.
 
-Public repositories support required reviewers on GitHub Free. If your account or organization policy does not let you configure your own reviewer or this exact branch policy, stop before installing the workflow and record the limitation as incomplete. Do not ask a facilitator to configure or approve on your behalf.
+Public repositories support required reviewers on GitHub Free. If your account or organization policy prevents you from setting yourself as reviewer or applying this exact branch policy, stop before installing the workflow. Record the limitation and mark the outcome incomplete. Do not ask a facilitator to configure or approve on your behalf.
 
 ## 2. Review and install the release workflow through a PR
 
@@ -64,10 +64,10 @@ Public repositories support required reviewers on GitHub Free. If your account o
    git push -u origin exercise/release-simulation
    ```
 
-   Title the PR **Add the reviewed release simulation**. Do not edit the default branch directly.
+   Name the PR **Add the reviewed release simulation**. Do not edit the default branch directly.
 5. Wait for Lab 6's required PR checks and CodeQL policy to pass on the workflow PR's latest revision. The release workflow itself does not run on PR events and is not a new required PR check. Merge the reviewed PR using the normal `workshop-main` ruleset, without bypassing it. Record the merge SHA.
 
-The [local Git](0-setup.md#fallback-a-local-vs-code-and-git) and [file-editor](0-setup.md#fallback-b-github-file-editor) routes use the same dedicated branch and PR; both require the environment to be configured first. The file-editor route does not provide an independent checksum command.
+The [local Git](0-setup.md#fallback-a-local-vs-code-and-git) and [file-editor](0-setup.md#fallback-b-github-file-editor) routes use the same dedicated branch and PR. Configure the environment first on either route. The file-editor route does not provide an independent checksum command.
 
 ## 3. Inspect, approve, and verify the exact release
 
@@ -116,7 +116,7 @@ Only after the required release and evidence steps are complete, dispatch the un
 
 ## Checkpoint
 
-Your individual record has the environment policy, reviewed workflow PR and merge SHA, one approved current-`main` run, successful same-SHA prerequisites, observed approval wait, run/attempt and artifact identity, receipt checksum, distinct archive digest, independent checksum result or explicit fallback status, and the incident-response decision. Never treat a stale run, sample receipt, recording, or another repository's result as your evidence.
+Record the environment policy, reviewed workflow PR, and merge SHA. For one approved current-`main` run, record the successful prerequisites at that SHA, the approval wait you observed, the run and attempt, and the artifact identity. Include the receipt checksum and archive digest as separate values, your independent checksum result or explicit fallback status, and your incident-response decision. Never treat a stale run, sample receipt, recording, or another repository's result as your evidence.
 
 ## Resources
 

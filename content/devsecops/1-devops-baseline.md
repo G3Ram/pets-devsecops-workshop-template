@@ -22,11 +22,11 @@ Functional tests catch regressions in the behavior they exercise. The existing A
 
 Each job receives its own `GITHUB_TOKEN`, an installation access token for GitHub's Actions App scoped to this repository. It is not your PAT and expires when the job finishes or reaches its effective maximum lifetime. In the CI file, `permissions: contents: read` limits what this identity can do; other configurable permissions are none unless explicitly granted.
 
-Codespaces also configures a developer credential, sometimes named `GITHUB_TOKEN`. That is a different identity context used for your repository work. Never print either token or run the optional workflow's proof code in the terminal using developer credentials.
+Codespaces also configures a developer credential, sometimes named `GITHUB_TOKEN`. This separate credential is for your work in the repository. Never print either token or run the optional workflow's proof code in the terminal using developer credentials.
 
 Inspect **Set up job > GITHUB_TOKEN Permissions** alongside the YAML. Explain why checkout needs repository-content read access and why tests do not need issue-write or source-write permission. Compare each grant with what the job actually needs.
 
-The [optional workload-identity lab](take-home/4-workload-identity.md) lets you observe denied issue creation, then a separate job that creates and closes a training issue. It needs no cloud account or personal token and stays outside this lesson's seven-minute budget. Its [OIDC guide](take-home/4-workload-identity.md#beyond-the-repository-oidc) points to provider trust and short-lived cloud credentials for later study.
+In the [optional workload-identity lab](take-home/4-workload-identity.md), you'll observe a denied attempt to create an issue, followed by a separate job that creates and closes a training issue. It needs no cloud account or personal token and stays outside this lesson's seven-minute budget. The [OIDC guide](take-home/4-workload-identity.md#beyond-the-repository-oidc) covers provider trust and short-lived cloud credentials for later study.
 
 ## Checkpoint
 

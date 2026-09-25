@@ -5,7 +5,7 @@
 
 ## Why it matters
 
-Your template copy already contains the application, lessons, and two core workflows. Prework checks access and repository security; you do not need to assemble files from another repository. Complete it before the event, then use the opening eight minutes to verify readiness.
+Your template copy already contains the application, lessons, and two core workflows. Before the event, check your access and repository security settings. You do not need to assemble files from another repository. Use the opening eight minutes to verify readiness.
 
 The flow is **use the workshop template -> open your copy in Codespaces -> verify checks and security settings -> open the starter PR**. There is no companion fetch, archive extraction, second clone, or workflow-install command.
 
@@ -13,9 +13,9 @@ Unless labeled otherwise, **editor** means browser-based VS Code in Codespaces a
 
 ## 0.1 Check your account and Codespaces access
 
-1. Sign in at [GitHub.com](https://github.com) with an account that can own/administer a public repository and use Actions.
+1. Sign in at [GitHub.com](https://github.com) with an account that can own or administer a public repository and use Actions.
 2. Follow your employer's public-training policy. Enterprise Managed Users cannot create public repositories; use a personal account only if permitted. If needed, use [signup](https://github.com/signup), verify an email you control, and configure two-factor authentication. Do not use an email already verified for a managed user.
-3. Check Codespaces availability, the payer displayed during creation, and remaining compute/storage usage or approved sponsorship. Public repositories do not provide unlimited free Codespaces. Codespaces usage is separate from Actions.
+3. Check that Codespaces is available and confirm the payer displayed during creation. Check your remaining compute and storage allowance or approved sponsorship. Public repositories do not provide unlimited free Codespaces. Codespaces usage is separate from Actions.
 4. Do not add payment details, increase budgets, widen credentials, or evade policy to continue. Use the [local Git](#fallback-a-local-vs-code-and-git) or [file-editor fallback](#fallback-b-github-file-editor) if needed.
 
 You need no laptop runtime, Azure account, Copilot subscription, or pasted PAT. If no route is permitted, arrange approved observation and leave individual outcomes incomplete.
@@ -55,7 +55,7 @@ GitHub copies the template's current default-branch files and starts independent
 
 5. Confirm the root is under `/workspaces`, origin is your learner repository, the branch is `main`, and the tree has no unrelated edits. Open `content/devsecops/README.md` in the editor.
 
-Do not clone again, add a required devcontainer, rebuild the image, install dependencies, or start the app. Tests/builds/scans run in Actions. Keep forwarded ports private. A prompt to fork or an unexpected origin means you should stop and open the correct learner copy.
+Do not clone again, add a required devcontainer, rebuild the image, install dependencies, or start the app. Tests, builds, and scans run in Actions. Keep forwarded ports private. If you see a prompt to fork or an unexpected origin, stop and open the correct learner copy.
 
 All guides and starters are in `content/devsecops` in your checkout. Later copy commands use paths relative to the learner root. Saving a file does not commit or push it.
 
@@ -70,7 +70,7 @@ The two active workflows are already on `main` before any exercise branch. `depe
 
 ## 0.5 Verify security in your learner repository
 
-A template copies files, but settings may differ in your repository. Verify security settings, secrets, environments, rulesets, and reviewer lists there. Organization defaults may already enable some settings.
+A template copies files. Verify security settings, secrets, environments, rulesets, and reviewer lists in your own repository because they may differ from the template. Organization defaults may already enable some settings.
 
 1. Open **Settings > Advanced Security** and confirm **Dependency graph** is enabled.
 2. Under **CodeQL analysis**, choose **Set up > Default**, confirm Python is detected, review other languages, and enable it. Do not combine default and advanced setup.
@@ -89,7 +89,7 @@ Missing, failed, or pending analysis is not a ready baseline. Report the run and
    git config --get user.email
    ```
 
-   If missing or unsuitable, use [repository-local identity recovery](take-home/troubleshooting.md#commit-identity). Keep configured Codespaces authentication; never print/replace its developer token or paste a PAT. That credential differs from an Actions job token.
+   If the identity is missing or unsuitable, use [repository-local identity recovery](take-home/troubleshooting.md#commit-identity). Keep the configured Codespaces authentication. Never print or replace its developer token, or paste a PAT. That credential differs from an Actions job token.
 2. Confirm a clean `main`, then create your working branch:
 
    ```bash
@@ -129,11 +129,11 @@ If the branch or PR already exists, use [Resume](take-home/0-resume.md) rather t
 | Functional/security baseline | Passing CI, successful CodeQL with intended debug finding, graph and secret protection enabled |
 | Working PR | Open own-repository PR with passing core checks |
 
-Send your repository, PR, CI run URLs, and bundled version through the event readiness channel. Record Codespaces or a fallback explicitly. Never share tokens, private connection details, or another repository's result as your own.
+Send your repository URL, PR URL, CI run URL, and bundled version through the event readiness channel. State whether you used Codespaces or a fallback. Never share tokens or private connection details, or present another repository's result as your own.
 
 ## 0.8 Stop and reuse your codespace
 
-Reuse one codespace throughout the workshop. Saved checkout files persist across stop/start and rebuild, but deletion removes unpushed work. Save and push intended safe changes before leaving; never publish a rejected fixture as a backup.
+Reuse one codespace throughout the workshop. Saved checkout files persist when you stop, restart, or rebuild it. Deleting the codespace removes unpushed work. Save and push intended safe changes before leaving; never publish a rejected fixture as a backup.
 
 Select **Codespaces: Stop Codespace** in the Command Palette or **Stop codespace** at [github.com/codespaces](https://github.com/codespaces). Closing the browser tab does not stop compute. Stopped storage still counts. Reopen the same space for take-home work and delete it only after preserving needed work and receipts.
 
@@ -148,7 +148,7 @@ git clone https://github.com/YOUR-OWNER/pets-devsecops.git
 cd pets-devsecops
 ```
 
-Substitute your learner owner/name, then open the bundled guide and continue at 0.4. There is no companion fetch or workflow-install step. Later Git commands are the same. No laptop Python/Node/Docker is required, and Codespaces lifecycle guidance does not apply to this local clone.
+Substitute your learner repository's owner and name, then open the bundled guide and continue at 0.4. There is no companion fetch or workflow-install step. Later Git commands are the same. You do not need Python, Node.js, or Docker on your laptop. Codespaces lifecycle guidance does not apply to this local clone.
 
 ## Fallback B: GitHub file editor
 

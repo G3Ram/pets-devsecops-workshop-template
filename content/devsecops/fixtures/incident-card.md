@@ -8,19 +8,19 @@ A new advisory affects a dependency used by a released revision. You have the re
 
 ## Why it matters
 
-New advisories may require a patch, a revert, or further investigation after the original checks passed. The response must begin from evidence about the released revision, not just the current branch.
+A new advisory may require a patch, a revert, or further investigation even though the original checks passed. Start with evidence about the released revision, not just the current branch.
 
 ## Decide
 
 1. Name the dependency and affected range from the advisory. Compare them with the manifest and lockfile at the receipt's released SHA.
 2. Assign a specific owner or responsible role. Record known facts separately from questions.
-3. Identify evidence still needed: whether the affected version is present, whether the vulnerable behavior is reachable, impact, available fixes, and the tests/dependency review/scans required before another merge.
+3. Identify evidence still needed: whether the affected version is present, whether the vulnerable behavior is reachable, its impact, and available fixes. Include the tests, dependency review, and scans required before another merge.
 4. Choose one next action: **patch**, **revert**, or **investigation**. Explain why the evidence supports that choice and who will review the change.
 5. State how the replacement revision would be validated, approved, and recorded in a new receipt. If this were a credential exposure, revocation/rotation and access review would come before source cleanup.
 
 ## Checkpoint
 
-Record the owner, released SHA, evidence needed, chosen action, and how you would identify the replacement revision. This is your incident-response decision; the workshop simulates it and does not execute a production rollback.
+Record the owner, released SHA, evidence needed, chosen action, and how you would identify the replacement revision. The workshop simulates this incident-response decision; it does not execute a production rollback.
 
 ## Resources
 

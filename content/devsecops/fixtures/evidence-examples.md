@@ -1,10 +1,10 @@
 # Reading the evidence
 
-Use these expected-field examples to interpret results. Actual authoring observations are in the [readiness register](../readiness.md); record your own results in the [evidence checklist](../evidence.md).
+Use these examples to understand which fields to inspect in your results. The [readiness register](../readiness.md) records what the authors observed. Record your own results in the [evidence checklist](../evidence.md).
 
 ## Why it matters
 
-Similar green/red indicators can mean different things. Check the revision, the reporting job, and what the result actually measures.
+Similar green or red indicators can mean different things. Check the revision, the reporting job, and what the result actually measures.
 
 | View | Look for | What would not prove the outcome |
 |---|---|---|
@@ -38,7 +38,7 @@ For a preserved author example, open [the downloaded receipt](recorded-release/r
 
 ## Recording a fallback
 
-A facilitator may use a clearly labeled historical recording to explain a control, with source repository, PR/run URLs, kit version, date, route, and failure/repair state. Redact fixture values and private data. A recording is explanatory only; it can never satisfy a learner's live evidence requirement. No recording is included merely because these expected fields are documented.
+A facilitator may use a clearly labeled historical recording to explain a control. Include the source repository, PR and run URLs, kit version, date, route, and failure or repair state. Redact fixture values and private data. A recording can explain a control but cannot satisfy a learner's live evidence requirement. Documenting these fields does not mean a recording is included.
 
 ## Checkpoint and resources
 
