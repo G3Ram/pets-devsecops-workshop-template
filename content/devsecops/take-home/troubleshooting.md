@@ -5,7 +5,7 @@
 
 ## Why it matters
 
-Keep each control in place while you diagnose a failure. Preserve your work and mark any outcome without the required evidence as incomplete.
+Keep each control in place while you diagnose a failure, and preserve your work. Mark an outcome incomplete if you do not have the required evidence.
 
 ## Codespaces access and recovery
 
@@ -16,10 +16,10 @@ Use the Codespaces editor and integrated terminal for the primary route. Keep Gi
 | Codespaces is unavailable or policy-blocked | Confirm the signed-in account, learner repository ownership, and employer/organization policy. Use the approved [local Git](../0-setup.md#fallback-a-local-vs-code-and-git) or [file-editor fallback](../0-setup.md#fallback-b-github-file-editor). Do not evade policy or create duplicate spaces. |
 | Quota exhausted or unexpected payer | Check **Billing and licensing > Usage** and the payer shown in the creation dialog. Use an existing allowance, approved sponsorship, or a fallback. Do not add payment details, increase budgets, or upsize the machine as the default fix. |
 | Cannot resume because usage is blocked | Preserve work through [exporting changes](https://docs.github.com/en/codespaces/troubleshooting/exporting-changes-to-a-branch) where available, reviewing the files before publishing. Never export a rejected secret fixture. Do not delete the codespace before preserving needed work. |
-| Startup fails or takes too long | Inspect the creation/connection error and service status, then use [creation troubleshooting](https://docs.github.com/en/codespaces/troubleshooting/troubleshooting-creation-and-deletion-of-codespaces). Record incomplete startup; don't add a required devcontainer, rebuild, or larger machine to mask the problem. |
+| Startup fails or takes too long | Inspect the creation or connection error and service status, then use [creation troubleshooting](https://docs.github.com/en/codespaces/troubleshooting/troubleshooting-creation-and-deletion-of-codespaces). Record that startup is incomplete. Don't add a required devcontainer, rebuild the codespace, or choose a larger machine to mask the problem. |
 | Wrong repository or automatic fork prompt | Check the existing checkout root, `git remote get-url origin`, and branch. Stop before pushing. Preserve work, stop the wrong space if it is yours, and open the intended learner copy. Do not retarget upstream or companion origins automatically. |
 | Closed tab, stopped space, or expired editor session | Reopen the same named learner space at [github.com/codespaces](https://github.com/codespaces). Saving is not a push. Check the branch and `git status --short` after reconnecting before switching or fetching. |
-| Bundled guide missing | Confirm learner origin/branch and inspect `content/devsecops` on that same repository's GitHub page. It arrived with the template. Inspect deleted/uncommitted files before recovering; do not fetch an external companion or overwrite local work. |
+| Bundled guide missing | Confirm the learner origin and branch, then inspect `content/devsecops` on that same repository's GitHub page. It arrived with the template. Inspect deleted or uncommitted files before recovering; do not fetch an external companion or overwrite local work. |
 | Older template version | Read `content/devsecops/workshop-kit.json` in your copy. GitHub copied the default branch at creation; later template updates do not change your copy. Use the matching guide or review an intentional update in your own repo. |
 | Git push/authentication fails | Keep the configured HTTPS authentication for the learner repository. Check origin, your access, and whether the Codespaces session expired; stop/reopen the existing space to refresh its configured token. If dotfiles or secrets override authentication, investigate with the owner without printing values or changing global settings as a quick fix. |
 | Optional workflow-file push is rejected | Preserve the commit and inspect the rejection. Confirm the learner target and policy. Use the file-editor fallback for that reviewed change if needed; don't widen scopes, add `write-all`, or create a privileged bootstrap. Core workflows are already installed. Reconcile divergent branches deliberately; no force push. |
@@ -39,7 +39,7 @@ Stop explicitly with **Codespaces: Stop Codespace** or the website's **Stop code
 | Optional recovery helper rejects origin | It accepts direct learner HTTPS/SSH URLs but refuses the original source, earlier companion, and public template origins, plus credentials, aliases, or mismatched destinations. Do not change remotes to bypass it. Normal setup does not need this helper. |
 | Wrong branch, detached HEAD, or Git operation in progress | Finish your work on its intended branch and resolve or deliberately abort the existing operation. Then use clean `main`. The helper does not reset, stash, or change your identity. |
 | Unrelated files or conflicting workflows | Review and preserve them. Compare the installed files with the bundled starters. Differing files are never silently overwritten by recovery tooling. |
-| Baseline fingerprint mismatch | A local application change or incompatible template update needs review. Record path/version/revision; do not replace the app with old source or waive the check. |
+| Baseline fingerprint mismatch | Review the local application change or incompatible template update. Record the path, version, and revision; do not replace the app with old source or waive the check. |
 | Recovery refuses after lesson 3 | The application fingerprint changed because you fixed it. Use the resume guide and deliberate file comparison rather than forcing initial-baseline recovery. |
 | Workshop files show unexpected changes | Guides are committed under `content/devsecops`. Inspect and preserve edits; do not delete or replace the folder to make the tree appear clean. |
 | Starter PR already exists | Resume it and inspect its current branch/checks. For a closed/merged PR, follow [Resume](0-resume.md). |
@@ -59,7 +59,7 @@ These settings apply only to this checkout and do not authenticate a push. Keep 
 
 Compare `.github/workflows/ci.yml` and `dependency-review.yml` with the same copy's `content/devsecops/starter` files. If a file is missing, preserve edits and determine why before restoring only the intended file through a reviewed commit/PR.
 
-The bundled `scripts/prepare-devsecops.sh` is optional recovery tooling, not required setup. `--check` is read-only; a missing file prints `WOULD COPY`, which is not proof that workflows exist or remote settings are ready. `--apply` copies only missing, matching-baseline core files and refuses conflicting content, unrelated edits, and source/template origins. It never bypasses GitHub policy or rewrites history.
+The bundled `scripts/prepare-devsecops.sh` is optional recovery tooling, not required setup. `--check` is read-only. For a missing file it prints `WOULD COPY`; that does not prove workflows exist or remote settings are ready. `--apply` copies only missing core files when the baseline matches. It refuses conflicting content, unrelated edits, and origins that point to a source or template repository. It never bypasses GitHub policy or rewrites history.
 
 ## Checks and findings
 
@@ -73,14 +73,14 @@ The bundled `scripts/prepare-devsecops.sh` is optional recovery tooling, not req
 | Expected debug finding absent | Confirm the pinned original source and Python analysis. The code might already be fixed or query behavior may have changed. Report drift; do not inject a new vulnerable endpoint. |
 | Default-branch alert remains after PR fix | Check the PR's latest analysis first. The default-branch alert closes after safe merge and successful default-branch analysis, not just after a PR commit. |
 | Dependency job passes but package is absent | Inspect the dependency diff for `workshop-lab/dependency/requirements.txt`, PyJWT, and the exact version. Empty discovery is incomplete, not a passing fixture exercise. Keep the threshold high. |
-| Dependency review says unsupported/not ready, or its API returns 403 | Confirm dependency graph is enabled in **Settings > Advanced Security** and your account is permitted to use it. Wait up to five minutes, then rerun once. If it still fails, escalate with the run URL. This is availability/setup failure, not advisory detection; do not lower the threshold or enable a bypass. |
+| Dependency review says unsupported/not ready, or its API returns 403 | Confirm dependency graph is enabled in **Settings > Advanced Security** and your account is permitted to use it. Wait up to five minutes, then rerun once. If it still fails, escalate with the run URL. This is an availability or setup failure, not advisory detection; do not lower the threshold or enable a bypass. |
 | Dependency repair still fails | Read the actual advisory and affected range. A newer advisory may require a kit update. Do not add allowlists or `warn-only`, and do not silently substitute an unverified version. |
 | Lab 4 dependency PR was repaired before Lab 6 proved the block | Do not claim the merge-policy block. If the PR is still open/unmerged and its original failure is recorded, restore only the isolated manifest to PyJWT 2.3.0, activate the ruleset, observe a completed failed required check, then repair it in Lab 6. Never install the manifest. |
 | Dependency training PR was merged by mistake | Do not install it or claim an unmerged closure. Remove the unused manifest through a separate safe PR and record the required Lab 6 outcome as incomplete. |
 
 ## Secrets
 
-Only use the fixture with documented nonfunctionality and recent route verification. Never authenticate with it. Repository push protection can behave differently for a value already detected in that repository; rehearse in fresh history.
+Use only the fixture documented as inactive, with a recent check of the route you plan to use. Never authenticate with it. Repository push protection can behave differently for a value already detected in that repository, so rehearse in fresh history.
 
 For one newest unpublished Codespaces terminal commit, follow lesson 5's targeted `git add` and amend. The local Git fallback does the same. For a blocked file-editor edit, correct the uncommitted buffer and retry; no local commit exists to amend.
 
@@ -97,7 +97,7 @@ For one newest unpublished Codespaces terminal commit, follow lesson 5's targete
 4. Mark every affected commit as `edit`. At each pause, remove the value, stage only the corrected file, run `git commit --amend --no-edit`, then `git rebase --continue`. Resolve conflicts carefully; a later commit can reintroduce the value.
 5. Inspect all rewritten unpublished changes and push the clean branch normally. No force push is needed when the rejected branch was never published.
 
-If the earliest commit is the root, the branch has shared history, or you are unsure about publication, stop and get help rather than applying this sequence blindly. For a real exposure, revoke/rotate first and follow the organization's incident process.
+If the earliest commit is the root, the branch has shared history, or you are unsure whether the commits were published, stop and get help before applying this sequence. For a real exposure, revoke or rotate the credential first and follow the organization's incident process.
 
 If the supplied fixture is not blocked, mark the result incomplete. Do not bypass, mint a real token, or claim a recording as your own live result.
 
@@ -118,7 +118,7 @@ If the supplied fixture is not blocked, mark the result incomplete. Do not bypas
 
 For the optional job-token exercise, use [its failure and cleanup table](4-workload-identity.md#4-handle-failures-and-cleanup). Only the exact expected integration-permission denial is successful evidence. Close only the issue whose recorded URL and run marker match; cancellation can interrupt automatic cleanup. Do not grant broader permissions or replace `GITHUB_TOKEN` with a personal token to force a pass.
 
-Record the failing step, exact error, revision/run URL, kit version, and safe next action. Exclude tokens and private data. If the issue remains unresolved, its outcome stays incomplete.
+Record the failing step, exact error, revision, run URL, kit version, and safe next action. Exclude tokens and private data. If the issue remains unresolved, its outcome stays incomplete.
 
 ## Resources
 

@@ -7,7 +7,7 @@
 
 Evidence links let you return to the exact revision and result. Record only public workshop data; exclude credentials, fixture values, and private screenshots.
 
-Write your learner repository URL, kit version, date, and route first: **Codespaces primary**, local Git fallback, or file-editor fallback. Keep only a nonsecret codespace identifier for your own resume record. Never share tokens, secret fixtures, or private connection details.
+Start with your learner repository URL, kit version, date, and route: **Codespaces primary**, local Git fallback, or file-editor fallback. To help you resume, keep only a nonsecret codespace identifier. Never share tokens, secret fixtures, or private connection details.
 
 | Status | Meaning |
 |---|---|
@@ -46,7 +46,7 @@ Record the route used separately from the result status. A fallback is not autom
 
 Examples, expected-result tables, preserved author receipts, recordings, and another learner's repository can help explain what to inspect. They do not satisfy any individual live outcome. A local test does not prove GitHub settings, Codespaces authentication, merge enforcement, environment approval, or artifact behavior.
 
-If an outcome is pending, unavailable, or not independently verified, leave it that way. An empty dependency diff, a queued check, a successful CodeQL run that still reports the finding, a receipt from another SHA, or a later deletion of a committed secret does not satisfy the corresponding checkpoint.
+Keep an outcome marked pending, unavailable, or unverified until you have the required evidence. An empty dependency diff or a queued check does not satisfy its checkpoint. Neither does a successful CodeQL run that still reports the finding, a receipt from another SHA, or a later deletion of a committed secret.
 
 The optional workload-identity exercise is not another core requirement. Its OIDC references are further reading: GitHub issue authorization does not demonstrate Azure/AWS login or cloud resource access.
 

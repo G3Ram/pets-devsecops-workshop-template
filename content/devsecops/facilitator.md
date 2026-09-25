@@ -5,25 +5,25 @@
 
 ## Why it matters
 
-With up to 90 participant-owned laptops and one facilitator plus 1-2 helpers, prework is essential. Use Codespaces as the primary route, but let learners operate only in their own public repositories. Facilitators and helpers guide and troubleshoot; they do not configure settings, approve runs, or complete learner steps for them.
+Plan for up to 90 participant-owned laptops, one facilitator, and 1-2 helpers. With this staffing, learners need to complete prework. Use Codespaces as the primary route and keep learners in their own public repositories. Facilitators and helpers guide and troubleshoot; they do not configure settings, approve runs, or complete learner steps for them.
 
 ## Before announcing the event
 
 1. Direct learners only to [frye/pets-devsecops-workshop-template](https://github.com/frye/pets-devsecops-workshop-template). Their copies already contain the app, lessons, and two core workflows.
 2. Complete every mandatory [readiness gate](readiness.md). Distinguish source inspection and local tests from live GitHub results. Treat the prerelease as review material; it does not establish event readiness.
-3. Confirm the published template version before the event. Update source pins only through reviewed changes in this new repository, and do not silently change its default branch during a cohort.
+3. Confirm the published template version before the event. Update source pins only through reviewed changes in this template repository, and do not silently change its default branch during a cohort.
 4. Rehearse creating an actual template copy, checking security settings, starting Codespaces, running preinstalled CI, making a harmless commit/push, and stopping and resuming the space. Test local Git and file-editor fallbacks separately. Earlier native Linux tests do not establish that Codespaces authentication works.
 5. Rehearse with representative prepared learners and managed/personal laptops on the venue network. Record wall-clock editing, Actions latency, help requests, and every outcome. The equation `8 + 75 + 7 = 90` only confirms the minutes add up; rehearsal must show that the schedule fits.
 
 ## Prework and staffing
 
-Collect learner repository, starter-PR, and CI run URLs, plus the bundled template version, through existing communications. Ask if Codespaces opened, a harmless push succeeded, and the learner can stop/resume the space. Record fallback use. Do not collect tokens or private connection details or require another signup.
+Collect learner repository, starter-PR, and CI run URLs, plus the bundled template version, through existing communications. Ask whether learners opened Codespaces, pushed a harmless change, and can stop and resume the space. Record any fallback they used. Do not collect tokens or private connection details, or require another signup.
 
-Narrate **Codespaces**, using the browser-based VS Code editor and integrated terminal. Keep the local Git and file-editor fallback references available for helpers rather than repeating every route. Assign the 1-2 helpers to tables or zones, prioritizing access/startup, Git problems, and the three individual exercises. At maximum capacity, a helper may cover 45-90 learners; revisit capacity if advance readiness is insufficient.
+Walk learners through **Codespaces** using the browser-based VS Code editor and integrated terminal. Keep the local Git and file-editor fallback references available for helpers rather than repeating every route. Assign the 1-2 helpers to tables or zones, prioritizing access and startup, Git problems, and the three individual exercises. At maximum capacity, a helper may cover 45-90 learners. Reconsider capacity if too few learners have completed prework.
 
-Confirm power, Wi-Fi, GitHub sign-in, the Codespaces editor/terminal and reconnection, and Actions access on representative personal/company-managed laptops. Check allowed quota or sponsorship before startup; do not change billing or machine size to force access. Use one smallest suitable codespace per learner repo, normally two cores, and no required custom devcontainer or app install. Neither a partner's run nor a facilitator's repository completes another attendee's checkpoint.
+Check power, Wi-Fi, GitHub sign-in, Actions access, and the Codespaces editor, terminal, and reconnection on representative personal and company-managed laptops. Confirm allowed quota or sponsorship before startup; do not change billing or machine size to force access. Use one codespace per learner repository on the smallest suitable machine, normally two cores. Do not require a custom devcontainer or app install. Neither a partner's run nor a facilitator's repository completes another attendee's checkpoint.
 
-## Prepare to support Labs 6–7
+## Prepare to support Labs 6 and 7
 
 No separate facilitator repository is required for the core merge-policy or release exercises. Each learner works in their own repository and performs their own settings changes and approvals. Before the event:
 
@@ -47,11 +47,11 @@ No separate facilitator repository is required for the core merge-policy or rele
 | 89-113 | Learners configure the environment, merge the reviewed workflow, approve/verify a release, and complete the incident card |
 | 113-120 | Record individual evidence, identify resume state, and stop safely |
 
-The agenda covers event minutes 0 through 120 exactly. Budgets are design targets, not a rehearsed guarantee; pending service results may remain after the session.
+The agenda covers event minutes 0 through 120 exactly. The budgets have not been confirmed in a rehearsal, and service results may still be pending when the session ends.
 
-After a four-minute wait, continue with an independent step and revisit the result at its callback. This is a facilitation threshold, not an Actions service promise. If the Lab 4 dependency result is still pending, learners may set up the ruleset in Lab 6 but must return to the actual failed run before claiming a block or repairing the fixture. During Lab 7, learners can complete the incident card while release checks run; they must observe all three successful prerequisites and the environment approval wait before approving.
+After a four-minute wait, continue with an independent step and return to the result at the next scheduled check-in. This is a facilitation threshold, not a promise about Actions response time. If the Lab 4 dependency result is still pending, learners may set up the ruleset in Lab 6. They must return to the actual failed run before claiming a block or repairing the fixture. During Lab 7, learners can complete the incident card while release checks run. They must observe all three successful prerequisites and the environment approval wait before approving.
 
-At minute 113, stop starting new troubleshooting/edit cycles and begin closing. Keep queued, unavailable, or unverified outcomes pending/incomplete; if familiar learners need more time, let them resume later rather than rushing. Never bypass secret protection, required checks, code-scanning policy, or approval to finish on time.
+At minute 113, stop starting new troubleshooting or edits and begin closing. Mark queued, unavailable, or unverified outcomes as pending or incomplete. Even learners familiar with the tools may need more time; let them resume later rather than rush. Never bypass secret protection, required checks, code-scanning policy, or approval to finish on time.
 
 At closing, have learners save and push intended safe work and explicitly stop their own codespace. Closing a tab does not stop compute; stopped storage still counts. Keep forwarded ports private. Preserve needed work and evidence before deletion, and reopen the same space for take-home.
 
@@ -84,15 +84,15 @@ export WORKSHOP_BASH="$(cygpath -w "$BASH")"
 
 Run that command in Git Bash only. The learner's helper invocation already runs in their chosen Bash terminal.
 
-The builder verifies baseline fingerprints, source metadata, and payload inventories, then creates a deterministic complete-template ZIP and SHA-256 sidecar. Refresh manifests only after reviewing changes; it does not download or bless a different application baseline. Compare two archive hashes. Output must be outside the checkout.
+The builder verifies baseline fingerprints, source metadata, and payload inventories, then creates a deterministic ZIP of the complete template and a SHA-256 sidecar. Refresh manifests only after reviewing changes. The builder does not download or approve a different application baseline. Compare two archive hashes, and keep output outside the checkout.
 
 Publish the whole repository layout, including `app/`, bundled `content/devsecops`, and exactly the two active core workflows. Keep optional starters inactive. Use an unused immutable version in this repository; do not modify previous companion releases.
 
-All maintainer commits, PRs, releases, and setting changes target this new template only. Source repositories in `template-source.json` are read-only inputs. Update them deliberately through a reviewed PR here, with provenance and renewed exercise checks. Never push to the original Pets or earlier companion repository.
+All maintainer commits, PRs, releases, and setting changes target this template only. Source repositories in `template-source.json` are read-only inputs. Update those inputs through a reviewed PR here, record their provenance, and repeat the exercise checks. Never push to the original Pets or earlier companion repository.
 
 ## Checkpoint
 
-The application and complete lessons ship together, bundled paths work without another fetch, and readiness separates automated checks from fresh-copy and human/Codespaces checks. Preserve that distinction in event invitations.
+The application and complete lessons ship together, and bundled paths work without another fetch. The readiness register separates automated checks from checks with a fresh copy, learners, and Codespaces. Preserve that distinction in event invitations.
 
 ## Resources
 

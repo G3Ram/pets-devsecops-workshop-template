@@ -2,7 +2,7 @@
 
 **[Start the workshop](content/devsecops/0-setup.md)** | [Lessons and agenda](content/devsecops/README.md) | [Take-home labs](content/devsecops/take-home/README.md)
 
-Create your own public shelter application from this template. The complete workshop and its core checks are already included.
+Create your own public repository for the shelter application from this template. It includes the complete workshop and its core checks.
 
 1. Select **Use this template > Create a new repository** on [frye/pets-devsecops-workshop-template](https://github.com/frye/pets-devsecops-workshop-template). Choose your account, a public repository, and the default branch only.
 2. In **your new copy**, select **Code > Codespaces > Create codespace on main**. Check Codespaces access, payer, and usage first.
@@ -12,9 +12,9 @@ No companion fetch, second clone, or workflow-install step is needed. The app is
 
 ## Why it matters
 
-The shelter's functional tests cannot answer every security question. This workshop adds code-scanning remediation, dependency review, and secret protection, then has each learner configure merge policy and approve a cloud-free release simulation in their own repository.
+The shelter's functional tests cannot answer every security question. You'll fix a code-scanning finding, review a dependency change, and practice secret protection. Then you'll configure merge policy and approve a cloud-free release simulation in your own repository.
 
-The complete agenda is exactly 120 minutes: eight minutes for setup, 57 for Labs 1–5, 48 for learner-run Labs 6–7, and seven for closing. These are design budgets, not a rehearsed timing guarantee; slow or unavailable platform results remain pending or incomplete. The repository includes recovery companions and an optional job-token/OIDC learning path. The guides document local Git and GitHub file-editor fallbacks. You need no cloud account or personal token.
+The complete agenda is exactly 120 minutes: eight minutes for setup, 57 for Labs 1 through 5, 48 for learner-run Labs 6 and 7, and seven for closing. These are planned budgets that have not been confirmed in a rehearsal. If platform results are delayed or unavailable, record them as pending or incomplete. The repository includes recovery guides and optional material on job tokens and OIDC. The guides also cover local Git and GitHub file-editor fallbacks. You need no cloud account or personal token.
 
 > [!IMPORTANT]
 > This is a training prerelease, not a production-ready application. The debug-startup finding is intentional exercise input; existing dependency alerts are not claimed resolved. Do not run or expose the app as a public service. Automated tests do not replace a fresh template-copy check, a live Codespaces check, or a human pacing rehearsal; see [readiness](content/devsecops/readiness.md).
@@ -27,7 +27,7 @@ Your learner copy has the app, bundled guides, `ci.yml`, and `dependency-review.
 
 Make changes to this template only in **frye/pets-devsecops-workshop-template**. Participants make lesson changes and PRs in their own copies. Do not send workshop PRs to the original Pets project or the earlier companion.
 
-The [source manifest](template-source.json) records the pinned application and workshop sources. Their licenses and attribution are retained; these are read-only provenance, not participant setup destinations. [Maintainer instructions](content/devsecops/facilitator.md#maintain-and-publish-this-template) cover validation and packaging.
+The [source manifest](template-source.json) records the pinned application and workshop sources, whose licenses and attribution are retained. Use these sources only to trace where the template came from, not to set up your learner repository. [Maintainer instructions](content/devsecops/facilitator.md#maintain-and-publish-this-template) cover validation and packaging.
 
 ## Resources
 

@@ -5,7 +5,7 @@
 
 ## Why it matters
 
-Your repository may have changed since the event. Establish its current state before adding rules or trying to recreate an exercise.
+Your repository may have changed since the event. Check its current state before adding rules or trying to recreate an exercise.
 
 ## Reopen the same codespace
 
@@ -21,8 +21,8 @@ Your repository may have changed since the event. Establish its current state be
    test -f content/devsecops/workshop-kit.json
    ```
 
-3. Confirm the root is under `/workspaces` and origin names your learner repository. Saved files persist across stop/start and rebuild. A replacement space starts with the committed template files; unpushed work stays in the old space.
-4. Confirm `content/devsecops/workshop-kit.json` and the two root workflows exist in your copy. If missing, inspect branch/deletion history and follow [troubleshooting](troubleshooting.md); do not fetch an external kit or overwrite your application. Record your bundled version before considering a reviewed update.
+3. Confirm the root is under `/workspaces` and origin names your learner repository. Saved files persist when you stop, restart, or rebuild the codespace. A replacement space starts with the committed template files; unpushed work stays in the old space.
+4. Confirm `content/devsecops/workshop-kit.json` and the two root workflows exist in your copy. If any are missing, check the branch and file deletion history, then follow [troubleshooting](troubleshooting.md). Do not fetch an external kit or overwrite your application. Record your bundled version before considering a reviewed update.
 
 If quota prevents resuming, follow [the recovery guide](troubleshooting.md#codespaces-access-and-recovery) and preserve work before using a fallback. Do not delete a space to resolve an authentication or quota error.
 
@@ -35,24 +35,24 @@ If quota prevents resuming, follow [the recovery guide](troubleshooting.md#codes
 
 | State | Safe next action |
 |---|---|
-| Labs 0–7 complete | Verify the safe merge SHA and its `main` results, the dependency PR is closed without merging, and the release receipt belongs to the approved current-`main` run. Save evidence and stop safely. |
-| Labs 0–5 complete; dependency PR open and failing | Leave it unrepaired and open. Continue at [Lab 6](../6-merge-policy.md) to configure the ruleset, prove the required-check block, and only then repair it. |
+| Labs 0 through 7 complete | Verify the safe merge SHA and its `main` results, the dependency PR is closed without merging, and the release receipt belongs to the approved current-`main` run. Save evidence and stop safely. |
+| Labs 0 through 5 complete; dependency PR open and failing | Leave it unrepaired and open. Continue at [Lab 6](../6-merge-policy.md) to configure the ruleset, prove the required-check block, and only then repair it. |
 | Code fix submitted, results pending or failed | Inspect the latest revision and finish [Lab 3](../3-code-scanning.md). Do not count an older green revision. Keep pending CodeQL/Actions results pending. |
 | Dependency PR missing or closed; branch gone | Recreate the isolated `exercise/dependency-policy` branch from current `main` and follow [Lab 4](../4-dependencies.md) to observe the real failure. Never merge or install the lab manifest. |
 | Dependency fixture repaired before proving the ruleset block | Do not claim the block. If the initial failure was observed and the PR remains unmerged, restore only the isolated manifest to PyJWT 2.3.0, observe the actual required-check failure with the active ruleset, then repair it in Lab 6. |
 | Dependency PR accidentally merged | Stop. Do not install the manifest. Remove the unused fixture with a separate safe PR and mark the required unmerged-closure outcome incomplete. |
 | Safe application PR still open | Reopen it if possible and confirm the latest fix/test, checks, and CodeQL result. Continue at Lab 6; do not merge before the ruleset is active. |
 | Safe application PR already merged | Verify `debug=False`, the regression test, merge SHA, `main` checks, and alert status. If it was merged before the ruleset, do not claim a ruleset-enforced safe merge. A harmless notes-only PR through the active ruleset can provide recovery evidence, but label it as a recovery PR and keep the original merge state accurate. Never restore debug mode. |
-| Fresh template copy | Complete [Step 0](../0-setup.md), then Labs 1–5. Lab 4 must leave an observed failing dependency PR open for Lab 6. Keep unavailable or pending outcomes honest. |
+| Fresh template copy | Complete [Step 0](../0-setup.md), then Labs 1 through 5. Lab 4 must leave an observed failing dependency PR open for Lab 6. Record unavailable or pending outcomes as such. |
 | App files intentionally changed since setup | Do not rerun the strict helper or overwrite them. Compare workflows manually with this kit, validate compatibility, and preserve the changes. |
 
-The preinstalled workflows do not need an installer. Optional recovery tooling checks the initial application's fingerprints and may reject an already remediated copy; use deliberate comparison and review for later changes.
+The preinstalled workflows do not need an installer. Optional recovery tooling checks the initial application's fingerprints and may reject a copy you have already fixed. Compare files and review later changes yourself.
 
 ## Resume release work
 
 | State | Safe next action |
 |---|---|
-| `workshop-demo` configured; release workflow not installed | Verify the own-reviewer, bypass, and sole `main` branch settings. Then follow Lab 7's reviewed-PR procedure. If a required setting cannot be configured, stop before workflow installation and mark the outcome incomplete. |
+| `workshop-demo` configured; release workflow not installed | Verify that you are the required reviewer, bypass is disabled, and the only branch rule is `main`. Then follow Lab 7's reviewed-PR procedure. If a required setting cannot be configured, stop before workflow installation and mark the outcome incomplete. |
 | Release workflow branch or PR already exists | Inspect the exact diff and latest checks. Resume that branch/PR; do not overwrite it or write directly to `main`. |
 | Workflow PR merged; release run pending or absent | Wait for the run for that exact merge SHA. If the push run did not start, dispatch the unchanged workflow from current `main` and record that SHA. |
 | Release prerequisite failed, queued, skipped, or cancelled | Do not approve. Wait or rerun the full workflow on current `main`; missing/pending results are not successful. |
@@ -64,7 +64,7 @@ The preinstalled workflows do not need an installer. Optional recovery tooling c
 
 A required workflow must exist in the branch you use. In the same codespace, update your local `main` from your learner origin before starting new take-home branches. For an existing working PR, the commands below merge the updated `main` into its branch.
 
-The fast-forward command refuses divergent local `main`. Substitute your actual working branch if it differs from `exercise/shelter-change`. If the working branch is gone or its PR was already merged, run only through the fast-forward of `main`, then use the new-branch sequence below; do not run the last two lines:
+The fast-forward command refuses to update a divergent local `main`. Substitute your actual working branch if it differs from `exercise/shelter-change`. If the working branch is gone or its PR was already merged, stop after the fast-forward of `main`. Skip the last two lines and use the new-branch sequence below:
 
 ```bash
 git status --short
@@ -92,9 +92,9 @@ For the file-editor fallback, create new branches from current remote `main` and
 
 ## Checkpoint
 
-You have an open safe PR, working core checks on its current revision, and a separate unmerged dependency exercise. Any missing live outcome remains labeled incomplete; it does not prevent learning about the later controls as long as their own prerequisites pass.
+You have an open safe PR, working core checks on its current revision, and a separate unmerged dependency exercise. Mark any missing live outcome incomplete. You can still learn about later controls as long as their own prerequisites pass.
 
-When pausing, verify safe commits are pushed, then explicitly stop this codespace. Closing the tab is not a stop; delete only after preserving needed work and evidence.
+When pausing, verify that safe commits are pushed, then explicitly stop this codespace. Closing the tab does not stop it. Delete the codespace only after preserving needed work and evidence.
 
 ## Resources
 

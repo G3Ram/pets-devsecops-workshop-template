@@ -5,7 +5,7 @@
 
 ## Why it matters
 
-A previously reviewed revision can gain a new advisory. Update configuration can surface changes, but someone still needs to review, test, and roll them out.
+A new advisory can affect a revision you already reviewed. Configured update tools can propose changes, but someone still needs to review, test, and roll them out.
 
 ## 1. Extend Dependabot coverage
 
@@ -57,15 +57,15 @@ A previously reviewed revision can gain a new advisory. Update configuration can
 
    On GitHub.com, open the PR and inspect core checks and policy results. Merge only after they pass. Do not include `workshop-lab/dependency/requirements.txt`, or install these requirements in the codespace during the lab.
 
-The complete config avoids reconstructing indentation from the excerpt. If needed, [local Git](../0-setup.md#fallback-a-local-vs-code-and-git) uses these commands; the [file-editor fallback](../0-setup.md#fallback-b-github-file-editor) edits the same two files on the new branch and opens its PR.
+Copy the complete config so you do not have to reconstruct indentation from the excerpt. The [local Git](../0-setup.md#fallback-a-local-vs-code-and-git) fallback uses the same commands. With the [file-editor fallback](../0-setup.md#fallback-b-github-file-editor), edit the same two files on the new branch and open its PR.
 
 ## 2. Understand the Python snapshot
 
-The inherited application manifest starts unpinned. Both functional workflows contain the same constraints in **Install workshop Python baseline**. They install only the application's manifest, never the lab fixture. This preserves the tested training baseline with only two core workflows active.
+The inherited application manifest starts unpinned. Both functional workflows use the same constraints in **Install workshop Python baseline** to preserve the tested training baseline. They install only the application's manifest, never the lab fixture. Only two core workflows are active.
 
 The constraints pin resolved dependency versions for the selected runtimes, including Linux's `greenlet`, but do not pin package hashes. Recheck the pinned versions as package indexes and advisories change.
 
-A future pip update may conflict with the constraints. That failure is intentional: review the new resolved versions, update the constraints in **both** `ci.yml` and `release-simulation.yml` if installed, then rerun tests and review advisories. Do not delete the constraint flag just to obtain green checks.
+A future pip update may conflict with the constraints. That failure is intentional. Review the new resolved versions, update the constraints in **both** `ci.yml` and `release-simulation.yml` if installed, then rerun tests and review advisories. Do not delete the constraint flag just to get passing checks.
 
 ### Maintainer-only snapshot regeneration
 
@@ -86,7 +86,7 @@ Replace the path with a new, unused directory. On Windows, use that environment'
 2. Open **Insights > Dependency graph > Dependabot** where available and inspect update-job/configuration errors. Confirm the configured directories exist.
 3. In **Settings > Advanced Security**, review dependency graph, Dependabot alerts, and Dependabot security updates. Enable available controls only within your repository and policy.
 4. A weekly version-update schedule does not promise an immediate PR. Security updates depend on an applicable advisory and a supported fix. Record configuration acceptance independently of PR arrival.
-5. When a bot PR arrives, inspect the advisory/release notes, package and lockfile changes, exact action SHA if relevant, permissions, and tests. Require the same policy before merging. Do not auto-merge an update merely because a bot opened it.
+5. When a bot PR arrives, inspect the advisory and release notes, package and lockfile changes, permissions, and tests. Check the exact action SHA if relevant. Apply the same policy before merging. Do not auto-merge an update merely because a bot opened it.
 
 ## Checkpoint
 

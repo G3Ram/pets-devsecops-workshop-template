@@ -5,10 +5,10 @@
 
 You're volunteering at the dog shelter. Its Flask API and Astro website pass their functional tests. Now you need to check what happens when a change leaves the debugger enabled, introduces a vulnerable package, or includes a credential.
 
-You'll fix code, observe a vulnerable dependency-review failure, and practice secret protection in your own public repository. You will then configure merge policy and run a cloud-free release simulation in that same repository. The [take-home companions](take-home/README.md) support recovery and extended validation; Labs 6 and 7 below are the canonical procedures.
+You'll fix code, observe dependency review reject a vulnerable package, and practice secret protection in your own public repository. Then you'll configure merge policy and run a cloud-free release simulation there. The [take-home companions](take-home/README.md) help you recover interrupted work and perform additional checks. Follow Labs 6 and 7 below for the main procedures.
 
 > [!IMPORTANT]
-> Candidate **0.2.0** bundles the application, complete workshop, and two installed core workflows. It is not a production-ready application or a claim of a live learner rehearsal. The [readiness register](readiness.md) separates source-level validation, historical evidence, and pending GitHub/Codespaces/human checks. The published `v0.1.0` release remains immutable.
+> Candidate **0.2.0** bundles the application, complete workshop, and two installed core workflows. The application is not production-ready, and no live learner rehearsal is claimed. The [readiness register](readiness.md) separates source-level validation and historical evidence from pending checks on GitHub, in Codespaces, and with learners. The published `v0.1.0` release remains immutable.
 
 ## What you need
 
@@ -18,7 +18,7 @@ The primary route uses browser-based VS Code in **GitHub Codespaces**, where Git
 
 Codespaces compute and storage have usage limits and a payer. Public repositories do not provide unlimited free Codespaces. Check access, quota, and who pays before starting. Standard Actions usage is separate. If policy, quota, or connectivity prevents the primary route, use the documented [local Git](0-setup.md#fallback-a-local-vs-code-and-git) or [file-editor fallback](0-setup.md#fallback-b-github-file-editor).
 
-Throughout these guides, **editor** and **terminal** mean the Codespaces editor and integrated Bash terminal unless labeled as a fallback. GitHub.com remains the place for PRs, settings, Actions dispatch/results, and approval. Application builds, tests, scans, and the optional token proof run in Actions, not Codespaces.
+Throughout these guides, **editor** and **terminal** mean the Codespaces editor and integrated Bash terminal unless labeled as a fallback. Use GitHub.com for PRs, settings, starting Actions runs, viewing results, and approvals. Application builds, tests, scans, and the optional token proof run in Actions, not Codespaces.
 
 Finish [Step 0](0-setup.md) before the event. Use the opening eight minutes to verify readiness.
 
@@ -38,7 +38,7 @@ These are design budgets. No representative learner rehearsal has established th
 | [7. Delivery and response](7-delivery-and-response.md) | 89-113 | 24 | Individual environment, release approval, incident decision |
 | [8. Closing](8-wrap-up.md) | 113-120 | 7 | Record live evidence and questions |
 
-The complete agenda, including setup and closing, totals exactly 120 minutes. The first 65 minutes preserve the existing setup and Labs 1–5 budgets; Labs 6 and 7 each receive 24 minutes for learner-operated settings and PR work. These budgets have not been verified in a live learner rehearsal. Actions or CodeQL latency may leave a result pending; the schedule never justifies bypassing a control or calling a pending result successful.
+The complete agenda, including setup and closing, totals exactly 120 minutes. Setup and Labs 1 through 5 occupy the first 65 minutes. Labs 6 and 7 each allow 24 minutes for learners to configure settings and work on PRs. No live learner rehearsal has verified these budgets. If Actions or CodeQL takes longer, leave results pending. Do not bypass a control or mark a pending result successful to meet the schedule.
 
 For optional practice after the 120-minute workshop, [prove a workflow's GitHub API permissions](take-home/4-workload-identity.md): observe a denied request, then a separate narrowly authorized job and its closed training issue. The guide also points to OIDC for future cloud identity work. It does not replace any core exercise.
 
@@ -48,9 +48,9 @@ Create your learner copy from [frye/pets-devsecops-workshop-template](https://gi
 
 No companion fetch, workflow-install script, or second application clone is required. The manifest identifies the current `0.2.0` candidate; the published [v0.1.0 release](https://github.com/frye/pets-devsecops-workshop-template/releases/tag/v0.1.0) remains an immutable historical archive. A future release of this candidate must be published separately. The template UI copies the current default branch; existing learner copies do not automatically receive future updates.
 
-Use one codespace for your learner repository. Saving changes in the editor does not commit or push them. Preserve intended work on GitHub and [stop the codespace explicitly](0-setup.md#08-stop-and-reuse-your-codespace) when finished; closing its tab does not stop compute. Stopped storage still counts toward usage. Keep forwarded ports private; no app hosting is added.
+Use one codespace for your learner repository. Saving changes in the editor does not commit or push them. Preserve intended work on GitHub and [stop the codespace explicitly](0-setup.md#08-stop-and-reuse-your-codespace) when finished. Closing its tab does not stop compute, and stopped storage still counts toward usage. Keep forwarded ports private; the workshop does not add app hosting.
 
-Lesson, starter, solution, and take-home links stay within this copy. Read-only source attribution is in [sources](sources.md). Participants work only in their learner repositories; template maintainers send changes only to the new template repository.
+Lesson, starter, solution, and take-home links stay within this copy. [Sources](sources.md) records the read-only source attribution. Participants work only in their learner repositories; template maintainers send changes only to this template repository.
 
 | Your next task | Guide |
 |---|---|

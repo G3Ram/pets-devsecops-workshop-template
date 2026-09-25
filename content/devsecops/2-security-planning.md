@@ -20,7 +20,7 @@ flowchart LR
     Review --> Approval["Approved release simulation"]
 ```
 
-The sketch shows the delivery path; the workshop does not deploy a hosted service. The sample application has no learner authentication or customer-PII subsystem to add to the model.
+The sketch shows the delivery path. The workshop does not deploy a hosted service, and the sample application has no learner authentication or customer-PII subsystem to include in the model.
 
 ## Try it
 
@@ -47,7 +47,7 @@ If you need to switch branches, preserve any existing edits first; do not discar
 
 ## Checkpoint
 
-You have three risk/control/owner rows and can explain what evidence would satisfy each one. The secret row remains incomplete until a live block and clean retry are observed; writing the criterion does not satisfy it.
+Your notes have three rows, each with a risk, control, and owner. You can explain what evidence would satisfy each row. The secret row remains incomplete until you observe a live block and clean retry; writing the criterion does not satisfy it.
 
 ## Resources
 
